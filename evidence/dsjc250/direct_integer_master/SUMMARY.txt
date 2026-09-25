@@ -1,0 +1,38 @@
+graph: DSJC250.9
+n: 250
+m: 27897
+stable-set census (size,count):
+size	count
+1	250
+2	3228
+3	2869
+4	205
+5	3
+6	0
+total columns: 6555 stable-set columns
+model rows: 255
+model variables: 7125
+binary variables: 6555
+continuous variables: 570
+matrix nonzeros: 32866
+solver: HiGHS
+solver version: 1.11.0
+threads: 1
+CPU affinity: 6
+wall time: 103.557923293 seconds
+CPU time: 103.50943700000001 seconds
+B&B nodes: 1601
+root bound: 8235.0074461199129
+best incumbent: 8276.9999999999982
+final bound: 8276.9999999999982
+final gap: 0
+status: Optimal
+verified class count: 73
+verified coloring sum: 8277
+verified Ferrers sum: 8277
+verified profile: 2,4,29,37,1
+proof status: exact integer model; checked upper witness; conventional MIP optimality, not a replayable lower proof
+repeat:
+job	wall_seconds	cpu_seconds	nodes	lp_iterations	peak_rss_kib	first_incumbent_wall	first_final_value_wall	closure_after_final_value_wall	final_incumbent	final_bound	gap
+mip01	103.557923293	103.509437000	1601	278786	202164	0.290121494	85.915426651	17.642496642	8277.000000000	8277.000000000	0.000000000
+mip02	103.374052360	103.317801000	1601	278786	202164	0.290291555	85.719011651	17.655040709	8277.000000000	8277.000000000	0.000000000

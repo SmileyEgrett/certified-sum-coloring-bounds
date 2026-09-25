@@ -1,0 +1,36 @@
+{
+  "schema": "dsjc1000_exact_bound_summary_v1",
+  "denominator": 1000000000,
+  "scenario_lower_bound_num": {
+    "000": 102633344579608,
+    "001": 102513319748705,
+    "010": 102557583397861,
+    "011": 102432711355035,
+    "100": 102503510602511,
+    "101": 102395380611244,
+    "110": 102443215571129,
+    "111": 102343581115274
+  },
+  "scenario_integer_lower_bound": {
+    "000": 102634,
+    "001": 102514,
+    "010": 102558,
+    "011": 102433,
+    "100": 102504,
+    "101": 102396,
+    "110": 102444,
+    "111": 102344
+  },
+  "global_conditional_lower_bound_num": 102343581115274,
+  "global_conditional_lower_bound_den": 1000000000,
+  "global_conditional_integer_lower_bound": 102344,
+  "baseline_lower_bound_num": 102308106541886,
+  "baseline_lower_bound_den": 1000000000,
+  "baseline_integer_lower_bound": 102309,
+  "upper_bound": 103256,
+  "certified_interval": [
+    102344,
+    103256
+  ],
+  "source_classification": "new exact conditioned-envelope disjunction, with each scenario replayed against graph-generated residual stable sets"
+}

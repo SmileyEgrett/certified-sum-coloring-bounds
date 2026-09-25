@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "Please cite this version when using the companion software or proof certificates."
+type: software
+title: >-
+  Conditioning on the Largest Color Classes: Certified Bounds for Minimum-Sum
+  Coloring of Very Dense Benchmark Graphs — Software and Proof Certificates
+authors:
+  - family-names: Titiloye
+    given-names: Olawale
+version: 1.0.0
+doi: 10.5281/zenodo.22952311
+url: https://doi.org/10.5281/zenodo.22952311
+repository-code: https://github.com/SmileyEgrett/certified-sum-coloring-bounds
+keywords:
+  - minimum-sum coloring
+  - chromatic sum
+  - graph coloring
+  - exact certificates
+  - stable-set packing

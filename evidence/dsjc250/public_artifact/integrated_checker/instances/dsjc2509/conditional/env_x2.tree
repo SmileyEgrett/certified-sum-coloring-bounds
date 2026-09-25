@@ -1,0 +1,11 @@
+# Exact graph-anchored conditional branch-tree certificate.
+schema=exact_mscp_conditional_tree_certificate_v1
+certificate_id=env_x2
+graph_raw_sha256=1b90f811e4d44f8937075865790b845e986b08b9da53caea57b2adf1c57383e7
+graph_canonical_sha256=52be422c0065411e126008bf4ee8ee2ba21320bde0a0e94d5ab308c2e34f53a8
+vertices=250
+maximum_class_size=5
+model_file=models/env_x2.model.json
+model_sha256=dee23008bf9bafdf62e911cb87c359cc95ad4f580db3d25ab4822c2b2614be7f
+proof_file=proofs/env_x2.proof.json.gz
+proof_sha256=5b9dc5878e8c95fbf2e15f068c34dfc5cb3c7adbbc700da2001500c62a71a538

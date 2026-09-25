@@ -1,0 +1,12 @@
+id	condition	complete residual scored sizes / quotas	score	strict target	consequence	integrated descriptor/payload	second-checker payload
+S1	global; h5 unrestricted	all stable sets sizes 4,5; h5 equality multiplier where stated	packing count	-	g4 <= 39	instances/dsjc2509/conditional/certificates/ge4_global.rational	certificates/rational/ge4_global.rational
+S2	h5=2	all stable sets sizes 4,5; exact h5=2	packing count	-	g4 <= 36	instances/dsjc2509/conditional/certificates/ge4_h5_eq_2.rational	certificates/rational/ge4_h5_eq_2.rational
+S3	exact top x1	all residual stable 4-sets	packing count	37	n4 <= 36	instances/dsjc2509/conditional/certificates/quad_x1.dual	certificates/rational/dual_h5_1_forbid_x1.rational
+S4	exact top x2	all residual stable 4-sets	packing count	38	n4 <= 37	instances/dsjc2509/conditional/quad_x2.tree + models/quad_x2.* + proofs/quad_x2.proof.json.gz	certificates/lpbb/quad_x2.proof.json.gz
+S5	exact top x3	all residual stable 4-sets	packing count	38	n4 <= 37	instances/dsjc2509/conditional/certificates/quad_x3.dual	certificates/rational/dual_h5_1_x3_slack.rational
+S6	exact top x1+x3	all residual stable 4-sets	packing count	34	n4 <= 33	instances/dsjc2509/conditional/certificates/quad_x1x3.dual	certificates/rational/dual_h5_2_forbid_x1_x3.rational
+S7	exact top x2; n4<=37	all residual stable 4-,3-sets; quota n4<=37	251 n4+n3	9317	at n4=37, n3<=29	instances/dsjc2509/conditional/env_x2.tree + models/env_x2.* + proofs/env_x2.proof.json.gz	certificates/lpbb/env_x2.proof.json.gz
+S8	exact top x3; n4<=37	all residual stable 4-,3-sets; quota n4<=37	251 n4+n3	9316	at n4=37, n3<=28	instances/dsjc2509/conditional/env_x3.tree + models/env_x3.* + proofs/env_x3.proof.json.gz	certificates/lpbb/env_x3.proof.json.gz
+S9	exact top x1+x2; n4<=34	all residual stable 4-,3-sets; quota n4<=34	251 n4+n3	8566	at n4=34, n3<=31	instances/dsjc2509/conditional/env_x1x2.tree + models/env_x1x2.* + proofs/env_x1x2.proof.json.gz	certificates/lpbb/env_x1x2.proof.json.gz
+S10	exact top x2; n4<=37,n3<=29	all residual stable 4-,3-,2-sets; quotas n4<=37,n3<=29	63001 n4+251 n3+n2	2338321	at (37,29), n2<=4	instances/dsjc2509/conditional/pair_H1C.tree + models/pair_H1C.* + proofs/pair_H1C.proof.json.gz	certificates/lpbb/pair_H1C.proof.json.gz
+S11	exact top x1+x2; n4<=34,n3<=31	all residual stable 4-,3-,2-sets; quotas n4<=34,n3<=31	63001 n4+251 n3+n2	2149820	at (34,31), n2<=4	instances/dsjc2509/conditional/pair_H2F.tree + models/pair_H2F.* + proofs/pair_H2F.proof.json.gz	certificates/lpbb/pair_H2F.proof.json.gz

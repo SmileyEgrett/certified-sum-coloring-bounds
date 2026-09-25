@@ -1,0 +1,22 @@
+# Generated manuscript files
+/paper/**/*.aux
+/paper/**/*.bbl
+/paper/**/*.blg
+/paper/**/*.fdb_latexmk
+/paper/**/*.fls
+/paper/**/*.log
+/paper/**/*.out
+/paper/**/*.synctex.gz
+/paper/**/*.toc
+
+# Local build and scratch output
+build/
+dist/
+__pycache__/
+*.pyc
+
+# Benchmark graphs are fetched and hash-checked; graph bytes are not versioned.
+*.col
+*.col.b
+/graphs/
+*.part.*

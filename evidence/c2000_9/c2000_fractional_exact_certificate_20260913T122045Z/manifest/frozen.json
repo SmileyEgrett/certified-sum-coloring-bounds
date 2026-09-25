@@ -1,0 +1,10 @@
+{
+  "input/C2000.9.col": "aa4b1d7df7f9c1afbf8c9f35fcf5bdfc6370fd27db5c9f3fd5409dfd0d164f16",
+  "EXACT_FRACTIONAL_COLORING.json": "c2345c551bc9e93881f69f939843c1ee94ef38b318a8f3c44e4247de3a0dcd05",
+  "SUM_MASTER_K390_PRIMAL.json": "ce85b2cc61bc9f1075e00aa6673c327ebc5778edbdf33e7569c0a5f65f32bf5a",
+  "source_snapshot/verification_common.py": "c7259e0b11cb384946600a5818aa596d478e350ea4855119b654c46d9df9fa03",
+  "source_snapshot/verify_fractional_coloring.py": "705ba147d39b9faeba9a684e892fe867bca255563c9ad81948a1b348c668a486",
+  "source_snapshot/verify_sum_master.py": "d35851db89f510e38854fed0d73bd88e83e024b8ba748510bf2d0113bf528b29",
+  "source_snapshot/test_certificate.py": "fe33616e4f5dad190669cc18941a115c2a7e9cbdee6fdf3920a7d5952d61699f",
+  "source_snapshot/test_certificate_v2.py": "7f0035f174860ff57dafb193b7bf1c6268b403d3369794ebdaaeb84a40a513cd"
+}

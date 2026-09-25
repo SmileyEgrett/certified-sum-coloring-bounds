@@ -1,0 +1,96 @@
+{
+  "admissible_csv": "admissible_cells_before_delta.csv",
+  "coverage_file": "coverage_paths.json",
+  "coverage_paths": 1195,
+  "frontier_cells": 178,
+  "frontier_csv": "frontier_cells.csv",
+  "input_cells": 1195,
+  "objective_limit": 29847,
+  "per_packing": {
+    "1": {
+      "cells": 158,
+      "frontier": 23,
+      "h4_bound": 101
+    },
+    "2": {
+      "cells": 122,
+      "frontier": 20,
+      "h4_bound": 100
+    },
+    "3": {
+      "cells": 157,
+      "frontier": 23,
+      "h4_bound": 101
+    },
+    "4": {
+      "cells": 122,
+      "frontier": 20,
+      "h4_bound": 100
+    },
+    "5": {
+      "cells": 159,
+      "frontier": 23,
+      "h4_bound": 101
+    },
+    "6": {
+      "cells": 159,
+      "frontier": 23,
+      "h4_bound": 101
+    },
+    "7": {
+      "cells": 159,
+      "frontier": 23,
+      "h4_bound": 101
+    },
+    "8": {
+      "cells": 159,
+      "frontier": 23,
+      "h4_bound": 101
+    }
+  },
+  "schema": "dsjc5009_splitting_frontier_v1",
+  "split_operations": {
+    "pair_to_1_1": [
+      2,
+      -1,
+      0,
+      0
+    ],
+    "quad_to_1_1_1_1": [
+      4,
+      0,
+      0,
+      -1
+    ],
+    "quad_to_2_1_1": [
+      2,
+      1,
+      0,
+      -1
+    ],
+    "quad_to_2_2": [
+      0,
+      2,
+      0,
+      -1
+    ],
+    "quad_to_3_1": [
+      1,
+      0,
+      1,
+      -1
+    ],
+    "triple_to_1_1_1": [
+      3,
+      0,
+      -1,
+      0
+    ],
+    "triple_to_2_1": [
+      1,
+      1,
+      -1,
+      0
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "column_count": 2880,
+  "columns_file": "env_x3.columns.tsv",
+  "columns_sha256": "73962d5d85241ce417b35924e86e892ce917d698e23b1a2591a50463067ea332",
+  "fixed_top_classes": [
+    [
+      67,
+      119,
+      166,
+      189,
+      247
+    ]
+  ],
+  "graph_canonical_sha256": "52be422c0065411e126008bf4ee8ee2ba21320bde0a0e94d5ab308c2e34f53a8",
+  "graph_raw_sha256": "1b90f811e4d44f8937075865790b845e986b08b9da53caea57b2adf1c57383e7",
+  "maximum_class_size": 5,
+  "model_id": "env_x3",
+  "radix": 251,
+  "schema": "exact_mscp_conditional_model_v1",
+  "score_by_size": {
+    "3": 1,
+    "4": 251
+  },
+  "strict_target": 9316,
+  "type_caps": {
+    "4": 37
+  },
+  "vertices": 250
+}

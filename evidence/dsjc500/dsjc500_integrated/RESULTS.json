@@ -1,0 +1,1212 @@
+{
+  "baseline": {
+    "authority_path": "baseline/dsjc5009-open-exact-investigation",
+    "lower_bound": 29785,
+    "unresolved_cells": 1269
+  },
+  "better_coloring_found": false,
+  "census": {
+    "baseline_authority_exact_eliminations": 11,
+    "baseline_domain_eliminations": 3,
+    "baseline_unresolved_cells": 1269,
+    "conditional_delta_eliminations": 30,
+    "h4_bound_eliminations": 74,
+    "incumbent_upper_bound": 29848,
+    "lowest_unresolved_cells": [
+      {
+        "h1": 1,
+        "h2": 4,
+        "h3": 4,
+        "h4": 101,
+        "h5": 15,
+        "objective": 29791,
+        "packing": 5,
+        "reason": "",
+        "status": "unresolved",
+        "strength": 125
+      },
+      {
+        "h1": 4,
+        "h2": 1,
+        "h3": 5,
+        "h4": 101,
+        "h5": 15,
+        "objective": 29791,
+        "packing": 5,
+        "reason": "",
+        "status": "unresolved",
+        "strength": 126
+      },
+      {
+        "h1": 4,
+        "h2": 1,
+        "h3": 5,
+        "h4": 101,
+        "h5": 15,
+        "objective": 29791,
+        "packing": 7,
+        "reason": "",
+        "status": "unresolved",
+        "strength": 126
+      }
+    ],
+    "schema": "dsjc5009_updated_census_v1",
+    "threshold": 29847,
+    "unresolved_by_objective": {
+      "29791": 3,
+      "29792": 8,
+      "29793": 14,
+      "29794": 8,
+      "29796": 20,
+      "29797": 20,
+      "29798": 8,
+      "29800": 14,
+      "29801": 16,
+      "29802": 16,
+      "29803": 20,
+      "29804": 8,
+      "29805": 20,
+      "29806": 16,
+      "29807": 8,
+      "29808": 16,
+      "29809": 22,
+      "29810": 8,
+      "29811": 28,
+      "29812": 28,
+      "29813": 16,
+      "29814": 24,
+      "29815": 28,
+      "29816": 8,
+      "29817": 24,
+      "29818": 32,
+      "29820": 14,
+      "29821": 20,
+      "29822": 24,
+      "29823": 44,
+      "29824": 32,
+      "29825": 24,
+      "29826": 16,
+      "29827": 36,
+      "29828": 16,
+      "29829": 16,
+      "29830": 16,
+      "29831": 24,
+      "29832": 38,
+      "29833": 36,
+      "29834": 16,
+      "29835": 16,
+      "29836": 38,
+      "29837": 24,
+      "29838": 40,
+      "29839": 32,
+      "29840": 16,
+      "29841": 30,
+      "29842": 40,
+      "29843": 16,
+      "29844": 24,
+      "29845": 38,
+      "29846": 16,
+      "29847": 30
+    },
+    "unresolved_by_strength": {
+      "124": 32,
+      "125": 95,
+      "126": 178,
+      "127": 236,
+      "128": 222,
+      "129": 182,
+      "130": 136,
+      "131": 72,
+      "132": 12
+    },
+    "updated_certified_lower_bound": 29791,
+    "updated_unresolved_cells": 1165
+  },
+  "certified_interval": {
+    "lower": 29791,
+    "upper": 29848
+  },
+  "conditional_mapped_cell_count": 30,
+  "conditional_tree_count": 17,
+  "conditional_trees": [
+    {
+      "caps": [
+        [
+          4,
+          101
+        ],
+        [
+          3,
+          6
+        ]
+      ],
+      "columns_sha256": "ee038c4d6e201ebc3782a326990f970307ca42073832baaca82da39cb75e5264",
+      "generation_seconds": 2.88832,
+      "mapped_profiles": [
+        [
+          3,
+          0,
+          6,
+          101,
+          15
+        ]
+      ],
+      "model_id": "conditional_e3d756193f9f15a67de4",
+      "model_sha256": "d58adf357be5b0ce82d51b84e1bd45b9ce2f2ab02a29eaebffd8df6b2634e154",
+      "packing": 1,
+      "peak_memory_kib": 221108,
+      "proof_sha256": "03443e5ed08b7e96a0a65273fa63ca6dfefe6eda013dc1b98a12d760d9002d84",
+      "proof_stats": {
+        "branches": 2,
+        "leaves": 3,
+        "matching_leaves": 0,
+        "nodes": 5
+      },
+      "scores": [
+        [
+          4,
+          501
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "status": "VERIFIED",
+      "strict_target": 50607,
+      "tag": "P1_H36"
+    },
+    {
+      "caps": [
+        [
+          4,
+          101
+        ],
+        [
+          3,
+          6
+        ]
+      ],
+      "columns_sha256": "221d2d21b6a3a9d6d6c99ae0c2bfe807faa9540a5f7b0290a51b3b95577da0f7",
+      "generation_seconds": 1.001923,
+      "mapped_profiles": [
+        [
+          3,
+          0,
+          6,
+          101,
+          15
+        ]
+      ],
+      "model_id": "conditional_a8387c25ac23279cbf14",
+      "model_sha256": "abedc13f0ac381cee625df8d50ca71e08f8d5d68e2f63f5d36143f39712cdd20",
+      "packing": 3,
+      "peak_memory_kib": 218896,
+      "proof_sha256": "4f09aa46acb53e968896aa08284d8f2f7f5d85fbd6663d39f48cfb3886b3eb8a",
+      "proof_stats": {
+        "branches": 0,
+        "leaves": 1,
+        "matching_leaves": 0,
+        "nodes": 1
+      },
+      "scores": [
+        [
+          4,
+          501
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "status": "VERIFIED",
+      "strict_target": 50607,
+      "tag": "P3_H36"
+    },
+    {
+      "caps": [
+        [
+          4,
+          101
+        ],
+        [
+          3,
+          6
+        ]
+      ],
+      "columns_sha256": "e00fb34671fa56fb6a6539c5ebb4554ea2e68681256a0b3a8de0d5e0c6827b25",
+      "generation_seconds": 20.02203,
+      "mapped_profiles": [
+        [
+          1,
+          1,
+          6,
+          101,
+          15
+        ],
+        [
+          3,
+          0,
+          6,
+          101,
+          15
+        ]
+      ],
+      "model_id": "conditional_272a9f32578038908cc9",
+      "model_sha256": "24830ea804013bd84c16994b31c460f8672b158a2ae218677a8ffd6582b6162c",
+      "packing": 5,
+      "peak_memory_kib": 222996,
+      "proof_sha256": "e7930f7a57cf15d21381a0f0ea7cfc1904479392bf9b5790576fa9e2f145d3e9",
+      "proof_stats": {
+        "branches": 23,
+        "leaves": 24,
+        "matching_leaves": 0,
+        "nodes": 47
+      },
+      "scores": [
+        [
+          4,
+          501
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "status": "VERIFIED",
+      "strict_target": 50607,
+      "tag": "P5_H36"
+    },
+    {
+      "caps": [
+        [
+          4,
+          101
+        ],
+        [
+          3,
+          6
+        ]
+      ],
+      "columns_sha256": "716fa3ab3d2556f2a95baf941915e98e74a0c853c4e8a683734d0a03bad33c08",
+      "generation_seconds": 3.732891,
+      "mapped_profiles": [
+        [
+          1,
+          1,
+          6,
+          101,
+          15
+        ],
+        [
+          3,
+          0,
+          6,
+          101,
+          15
+        ]
+      ],
+      "model_id": "conditional_9ff92577b0eb7839bc29",
+      "model_sha256": "bd2056d971e1e56cc279403f6046b8c7ef4da0425c9f68693ced0ca464f88d0c",
+      "packing": 6,
+      "peak_memory_kib": 220616,
+      "proof_sha256": "64596589fbbe450779c6a4a872e7e82b9475bafed62a887bec23d0479dcff5e4",
+      "proof_stats": {
+        "branches": 3,
+        "leaves": 4,
+        "matching_leaves": 0,
+        "nodes": 7
+      },
+      "scores": [
+        [
+          4,
+          501
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "status": "VERIFIED",
+      "strict_target": 50607,
+      "tag": "P6_H36"
+    },
+    {
+      "caps": [
+        [
+          4,
+          101
+        ],
+        [
+          3,
+          6
+        ]
+      ],
+      "columns_sha256": "c76a545cf4c676210addf62a6876b8b11c98f6b571acea57bfc63ee011bd5d94",
+      "generation_seconds": 15.812079,
+      "mapped_profiles": [
+        [
+          1,
+          1,
+          6,
+          101,
+          15
+        ],
+        [
+          3,
+          0,
+          6,
+          101,
+          15
+        ]
+      ],
+      "model_id": "conditional_a624eefdfa6c9754712a",
+      "model_sha256": "3f4f871c583fa53e712086a0f513cd27cf18f1cfef8023b931fa72603cee93d2",
+      "packing": 7,
+      "peak_memory_kib": 222080,
+      "proof_sha256": "ae33fbd18a224161671814343f1091e856465005c4792601df487f396981f269",
+      "proof_stats": {
+        "branches": 17,
+        "leaves": 18,
+        "matching_leaves": 0,
+        "nodes": 35
+      },
+      "scores": [
+        [
+          4,
+          501
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "status": "VERIFIED",
+      "strict_target": 50607,
+      "tag": "P7_H36"
+    },
+    {
+      "caps": [
+        [
+          4,
+          101
+        ],
+        [
+          3,
+          6
+        ]
+      ],
+      "columns_sha256": "44d886d720d6b37771cd71bdd35a0a317143f234f8492583cd8c4f8b8ac182a4",
+      "generation_seconds": 1.328498,
+      "mapped_profiles": [
+        [
+          1,
+          1,
+          6,
+          101,
+          15
+        ],
+        [
+          3,
+          0,
+          6,
+          101,
+          15
+        ]
+      ],
+      "model_id": "conditional_8f96f6a816656b6be706",
+      "model_sha256": "644cf138ba727dc5a46530b3c90afefed16516e4deb40b2a602d51f07225a0a6",
+      "packing": 8,
+      "peak_memory_kib": 218760,
+      "proof_sha256": "d1b7f0b1e314e64a413a58b656402899649e7cdede973d059b618e1b5fe824cd",
+      "proof_stats": {
+        "branches": 0,
+        "leaves": 1,
+        "matching_leaves": 0,
+        "nodes": 1
+      },
+      "scores": [
+        [
+          4,
+          501
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "status": "VERIFIED",
+      "strict_target": 50607,
+      "tag": "P8_H36"
+    },
+    {
+      "caps": [
+        [
+          4,
+          101
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "columns_sha256": "78d7a69c7178f66a661c8f1af69625965e0176a811fb4b79bd1c8f34ed7cd30f",
+      "generation_seconds": 45.422143,
+      "mapped_profiles": [
+        [
+          1,
+          4,
+          4,
+          101,
+          15
+        ]
+      ],
+      "model_id": "conditional_c432c044309c9470ee15",
+      "model_sha256": "19da464543369700cc8976182b298f27c9425bcabd16f6c7fbf4d0824b0d603e",
+      "packing": 1,
+      "peak_memory_kib": 305596,
+      "proof_sha256": "d38478ee5ad386642d1ecc6c0e21e9d7f5da42f887076bb9a549bbf15703c98c",
+      "proof_stats": {
+        "branches": 29,
+        "leaves": 30,
+        "matching_leaves": 0,
+        "nodes": 59
+      },
+      "scores": [
+        [
+          4,
+          251001
+        ],
+        [
+          3,
+          501
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "status": "VERIFIED",
+      "strict_target": 25353109,
+      "tag": "P1_A_29791"
+    },
+    {
+      "caps": [
+        [
+          4,
+          101
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "columns_sha256": "7038394591ed0a79161322e481f0a96a82e0e196b9f6040529c82b844f3c07fe",
+      "generation_seconds": 15.983703,
+      "mapped_profiles": [
+        [
+          1,
+          4,
+          4,
+          101,
+          15
+        ]
+      ],
+      "model_id": "conditional_353930a1b26411907798",
+      "model_sha256": "a2032bd9aeb293becc5b09f94111b3c24cd045edba9fd90dd657ed160feda39c",
+      "packing": 3,
+      "peak_memory_kib": 303612,
+      "proof_sha256": "c0998c3238c5f942ef8ec299d47c1a715a1a33bdba3f1f34710a2f02250da531",
+      "proof_stats": {
+        "branches": 9,
+        "leaves": 10,
+        "matching_leaves": 0,
+        "nodes": 19
+      },
+      "scores": [
+        [
+          4,
+          251001
+        ],
+        [
+          3,
+          501
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "status": "VERIFIED",
+      "strict_target": 25353109,
+      "tag": "P3_A_29791"
+    },
+    {
+      "caps": [
+        [
+          4,
+          101
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "columns_sha256": "51764dc168a02372b1bac8adcb60ef1b207333482b415e12067f413457fe7eb7",
+      "generation_seconds": 58.974645,
+      "mapped_profiles": [
+        [
+          1,
+          4,
+          4,
+          101,
+          15
+        ]
+      ],
+      "model_id": "conditional_324b79f2f72eae98df76",
+      "model_sha256": "d37079cb21f262264a88764837c8947fed23e9f62c27bf23b7d865e20cf4044d",
+      "packing": 6,
+      "peak_memory_kib": 306024,
+      "proof_sha256": "3dd6afbffe70f5a0d7315a33eda413a51aaf53261d003846117ddb44ce7ead25",
+      "proof_stats": {
+        "branches": 37,
+        "leaves": 38,
+        "matching_leaves": 0,
+        "nodes": 75
+      },
+      "scores": [
+        [
+          4,
+          251001
+        ],
+        [
+          3,
+          501
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "status": "VERIFIED",
+      "strict_target": 25353109,
+      "tag": "P6_A_29791"
+    },
+    {
+      "caps": [
+        [
+          4,
+          101
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "columns_sha256": "8dd0cc482a1a3a03451783a37e5335c2839c67552a75eaba793c9c94e3c0026a",
+      "generation_seconds": 293.914519,
+      "mapped_profiles": [
+        [
+          1,
+          4,
+          4,
+          101,
+          15
+        ]
+      ],
+      "model_id": "conditional_fbb9374a4caeee8dda61",
+      "model_sha256": "39b198f937851c19206ca1e66a019eeda04b82c85b91db31a34df1992fbc027b",
+      "packing": 7,
+      "peak_memory_kib": 320848,
+      "proof_sha256": "e3b8c3cb427df8267ac71f1670be19a2ceb5c5b7d88a24636b4768442d5f4a22",
+      "proof_stats": {
+        "branches": 197,
+        "leaves": 198,
+        "matching_leaves": 0,
+        "nodes": 395
+      },
+      "scores": [
+        [
+          4,
+          251001
+        ],
+        [
+          3,
+          501
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "status": "VERIFIED",
+      "strict_target": 25353109,
+      "tag": "P7_A_29791"
+    },
+    {
+      "caps": [
+        [
+          4,
+          101
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "columns_sha256": "fa5dd491930baa304575c1f014a0baf290f2c2b5d5c3ba7299bb4e3c74e0dd0b",
+      "generation_seconds": 29.108483,
+      "mapped_profiles": [
+        [
+          1,
+          4,
+          4,
+          101,
+          15
+        ]
+      ],
+      "model_id": "conditional_ab1abd2e8019e72e3156",
+      "model_sha256": "718299d78c5e3ab3d5d65ab3a84b809706aa7257e9bcf9885da6d4797171aadf",
+      "packing": 8,
+      "peak_memory_kib": 303112,
+      "proof_sha256": "6c7cfa5ca00759166513bf90df36b58d162a4618eec2dfee74c1670843fd85d3",
+      "proof_stats": {
+        "branches": 15,
+        "leaves": 16,
+        "matching_leaves": 0,
+        "nodes": 31
+      },
+      "scores": [
+        [
+          4,
+          251001
+        ],
+        [
+          3,
+          501
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "status": "VERIFIED",
+      "strict_target": 25353109,
+      "tag": "P8_A_29791"
+    },
+    {
+      "caps": [
+        [
+          4,
+          101
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "columns_sha256": "78d7a69c7178f66a661c8f1af69625965e0176a811fb4b79bd1c8f34ed7cd30f",
+      "generation_seconds": 32.426561,
+      "mapped_profiles": [
+        [
+          0,
+          3,
+          5,
+          101,
+          15
+        ],
+        [
+          2,
+          2,
+          5,
+          101,
+          15
+        ],
+        [
+          4,
+          1,
+          5,
+          101,
+          15
+        ]
+      ],
+      "model_id": "conditional_9d9c97d97e7220f63b0b",
+      "model_sha256": "8ef3c4d866731c7a854f524b0eec0188c725f1308cf440abe08d45b9732a90c5",
+      "packing": 1,
+      "peak_memory_kib": 305416,
+      "proof_sha256": "06c749c39b3f14848372e5b70c924c1e4b43b3fc2047205bbb5a476673b10236",
+      "proof_stats": {
+        "branches": 23,
+        "leaves": 24,
+        "matching_leaves": 0,
+        "nodes": 47
+      },
+      "scores": [
+        [
+          4,
+          251001
+        ],
+        [
+          3,
+          501
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "status": "VERIFIED",
+      "strict_target": 25353607,
+      "tag": "P1_B_29791"
+    },
+    {
+      "caps": [
+        [
+          4,
+          101
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "columns_sha256": "7038394591ed0a79161322e481f0a96a82e0e196b9f6040529c82b844f3c07fe",
+      "generation_seconds": 14.153804,
+      "mapped_profiles": [
+        [
+          2,
+          2,
+          5,
+          101,
+          15
+        ],
+        [
+          4,
+          1,
+          5,
+          101,
+          15
+        ]
+      ],
+      "model_id": "conditional_9fdb161e961161d21717",
+      "model_sha256": "406a669d2a4ca3e68e42ff522468b02ebb130d2f1a08a678beb7ad2b2b760da0",
+      "packing": 3,
+      "peak_memory_kib": null,
+      "proof_sha256": "c33cf5b6b7495a8e0d00446859db2a9a22831bed00e0d3fd14f414a1565ea311",
+      "proof_stats": {
+        "branches": 9,
+        "leaves": 10,
+        "matching_leaves": 0,
+        "nodes": 19
+      },
+      "scores": [
+        [
+          4,
+          251001
+        ],
+        [
+          3,
+          501
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "status": "VERIFIED",
+      "strict_target": 25353607,
+      "tag": "P3_B_29791"
+    },
+    {
+      "caps": [
+        [
+          4,
+          101
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "columns_sha256": "51764dc168a02372b1bac8adcb60ef1b207333482b415e12067f413457fe7eb7",
+      "generation_seconds": 62.431316,
+      "mapped_profiles": [
+        [
+          0,
+          3,
+          5,
+          101,
+          15
+        ],
+        [
+          2,
+          2,
+          5,
+          101,
+          15
+        ],
+        [
+          4,
+          1,
+          5,
+          101,
+          15
+        ]
+      ],
+      "model_id": "conditional_0818faf8f2adc692f590",
+      "model_sha256": "8a4d18294728fc59b62391bd4f12de7601818e0eab8ca05ccf29883a878ea65f",
+      "packing": 6,
+      "peak_memory_kib": 305812,
+      "proof_sha256": "fcc0b05d759c78ef51752180467ef2f2efb0231f086b31b770104fee8e014561",
+      "proof_stats": {
+        "branches": 43,
+        "leaves": 44,
+        "matching_leaves": 0,
+        "nodes": 87
+      },
+      "scores": [
+        [
+          4,
+          251001
+        ],
+        [
+          3,
+          501
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "status": "VERIFIED",
+      "strict_target": 25353607,
+      "tag": "P6_B_29791"
+    },
+    {
+      "caps": [
+        [
+          4,
+          101
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "columns_sha256": "fa5dd491930baa304575c1f014a0baf290f2c2b5d5c3ba7299bb4e3c74e0dd0b",
+      "generation_seconds": 30.311885,
+      "mapped_profiles": [
+        [
+          0,
+          3,
+          5,
+          101,
+          15
+        ],
+        [
+          2,
+          2,
+          5,
+          101,
+          15
+        ],
+        [
+          4,
+          1,
+          5,
+          101,
+          15
+        ]
+      ],
+      "model_id": "conditional_3b7e1901bd1dd72fa3c9",
+      "model_sha256": "d33aba87f1fb48d6ee834a3deb41ba5052223c66b88c2e97f8d96db975c8488b",
+      "packing": 8,
+      "peak_memory_kib": 303672,
+      "proof_sha256": "eb746e5e8ab32480b966dc27160c7c7d69946fd49ad598c5a916b4791ae2e55f",
+      "proof_stats": {
+        "branches": 18,
+        "leaves": 19,
+        "matching_leaves": 0,
+        "nodes": 37
+      },
+      "scores": [
+        [
+          4,
+          251001
+        ],
+        [
+          3,
+          501
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "status": "VERIFIED",
+      "strict_target": 25353607,
+      "tag": "P8_B_29791"
+    },
+    {
+      "caps": [
+        [
+          4,
+          101
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "columns_sha256": "a34315a48a49f7a515cc559a1b6b1546216146e21e19a8fa89dcb85a6b6731b2",
+      "generation_seconds": 438.807126,
+      "mapped_profiles": [
+        [
+          0,
+          3,
+          5,
+          101,
+          15
+        ],
+        [
+          2,
+          2,
+          5,
+          101,
+          15
+        ]
+      ],
+      "model_id": "conditional_4f5f76d7b283ee862e08",
+      "model_sha256": "f5b8068407e4d94fa8e83c6d847f5e4f2b4476c557bafc33e7dc5dd7555c4772",
+      "packing": 5,
+      "peak_memory_kib": 331936,
+      "proof_sha256": "87bc4f37637b6dd53950ddaa1f86e1a654a5073f8c8022722326d4e5d5833636",
+      "proof_stats": {
+        "branches": 287,
+        "leaves": 288,
+        "matching_leaves": 0,
+        "nodes": 575
+      },
+      "scores": [
+        [
+          4,
+          251001
+        ],
+        [
+          3,
+          501
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "status": "VERIFIED",
+      "strict_target": 25353608,
+      "tag": "P5_C_29788"
+    },
+    {
+      "caps": [
+        [
+          4,
+          101
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "columns_sha256": "8dd0cc482a1a3a03451783a37e5335c2839c67552a75eaba793c9c94e3c0026a",
+      "generation_seconds": 102.643776,
+      "mapped_profiles": [
+        [
+          0,
+          3,
+          5,
+          101,
+          15
+        ],
+        [
+          2,
+          2,
+          5,
+          101,
+          15
+        ]
+      ],
+      "model_id": "conditional_03ae7e2fba1b4545c771",
+      "model_sha256": "2df3ee4c30038934e2fe3ef6718f9293deead68d125242f39950141a25d56694",
+      "packing": 7,
+      "peak_memory_kib": 308604,
+      "proof_sha256": "6ab7d3b0ead9d970a4f79e2da3ef30819f8a4eb74ba08531b1d30c1bfe97b500",
+      "proof_stats": {
+        "branches": 63,
+        "leaves": 64,
+        "matching_leaves": 0,
+        "nodes": 127
+      },
+      "scores": [
+        [
+          4,
+          251001
+        ],
+        [
+          3,
+          501
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "status": "VERIFIED",
+      "strict_target": 25353608,
+      "tag": "P7_C_29788"
+    }
+  ],
+  "fixed_incumbent": {
+    "conclusion": "Every coloring of canonical sum at most 29847 changes at least one incumbent class of size 4 or 5.",
+    "excluded_profiles": 9,
+    "maximum_pairs_after_10_triples": 4,
+    "maximum_triple_packings": 12,
+    "maximum_triples": 10,
+    "residual_vertices": 41,
+    "status": "VERIFIED"
+  },
+  "graph": {
+    "canonical_sha256": "69e7453e2a389197f67fe0e02cf661bc71132b4ea457a434b4726a4b7489b618",
+    "raw_sha256": "95276841dffcde7c04de2fc1ae8e43b6c7b84173b4a9646b1cc6b392a3bd7b39",
+    "unique_undirected_edges": 112437,
+    "vertices": 500
+  },
+  "incumbent": {
+    "canonical_sum": 29848,
+    "coloring": "data/DSJC500.9_sum29848.coloring",
+    "profile": [
+      3,
+      4,
+      10,
+      96,
+      15
+    ],
+    "sha256": "3f948845ad75ea1ed742916229e6060cab99d6839b7a109af59825e496804760"
+  },
+  "instance": "DSJC500.9",
+  "maximum_5set_packing": {
+    "count": 8,
+    "size": 15
+  },
+  "new_residual_h4_certificates": [
+    {
+      "bound": 100,
+      "certificate_sha256": "28c6fa287c36abaad515a8e399573feaf2ad491e70bcc7c97d1434715c910012",
+      "max_depth": 14,
+      "packing": 2,
+      "records": 761,
+      "status": "VERIFIED"
+    },
+    {
+      "bound": 100,
+      "certificate_sha256": "1b0213fb1f13ca8e66d05e096ebac8a3fb1fff7660c5637cf8e323dd1b9f721a",
+      "max_depth": 13,
+      "packing": 4,
+      "records": 589,
+      "status": "VERIFIED"
+    }
+  ],
+  "optimum_status": "OPEN",
+  "remaining_lowest_cells": [
+    {
+      "h1": 1,
+      "h2": 4,
+      "h3": 4,
+      "h4": 101,
+      "h5": 15,
+      "objective": 29791,
+      "packing": 5,
+      "reason": "",
+      "status": "unresolved",
+      "strength": 125
+    },
+    {
+      "h1": 4,
+      "h2": 1,
+      "h3": 5,
+      "h4": 101,
+      "h5": 15,
+      "objective": 29791,
+      "packing": 5,
+      "reason": "",
+      "status": "unresolved",
+      "strength": 126
+    },
+    {
+      "h1": 4,
+      "h2": 1,
+      "h3": 5,
+      "h4": 101,
+      "h5": 15,
+      "objective": 29791,
+      "packing": 7,
+      "reason": "",
+      "status": "unresolved",
+      "strength": 126
+    }
+  ],
+  "schema": "dsjc5009_integrated_recovered_delta_results_v1",
+  "splitting_frontier": {
+    "coverage_paths": 1195,
+    "frontier_cells": 178,
+    "per_packing": {
+      "1": {
+        "cells": 158,
+        "frontier": 23,
+        "h4_bound": 101
+      },
+      "2": {
+        "cells": 122,
+        "frontier": 20,
+        "h4_bound": 100
+      },
+      "3": {
+        "cells": 157,
+        "frontier": 23,
+        "h4_bound": 101
+      },
+      "4": {
+        "cells": 122,
+        "frontier": 20,
+        "h4_bound": 100
+      },
+      "5": {
+        "cells": 159,
+        "frontier": 23,
+        "h4_bound": 101
+      },
+      "6": {
+        "cells": 159,
+        "frontier": 23,
+        "h4_bound": 101
+      },
+      "7": {
+        "cells": 159,
+        "frontier": 23,
+        "h4_bound": 101
+      },
+      "8": {
+        "cells": 159,
+        "frontier": 23,
+        "h4_bound": 101
+      }
+    },
+    "preconditional_cells": 1195
+  },
+  "stable_set_census": {
+    "2": 12313,
+    "3": 19901,
+    "4": 2428,
+    "5": 23,
+    "6": 0
+  },
+  "supporting_normals_file": "results/frontier/supporting_normals.json"
+}
