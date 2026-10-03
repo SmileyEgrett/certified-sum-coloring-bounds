@@ -143,3 +143,24 @@ the minimum-sum coloring itself is known exactly for C2000.9.
 The package instructions describe the models, proof formats and regression
 controls in more detail. A passing manifest checks identity; each mathematical
 claim requires the corresponding certificate and witness replay.
+
+
+## Generate lower-bound certificates and search for upper witnesses
+
+The commands above check the evidence accompanying the manuscript.
+Version 1.1.0 also supplies the software that generates conditioned
+lower-bound certificates. Follow the [generation instructions](generation/conditioned-lower-bounds/README.md)
+to start from the four benchmark graphs, produce fresh numerical and exact
+objects, and run the exact checks. The supplied [reference reproduction](generation/conditioned-lower-bounds/reference/COMPUTATIONAL_RECORD.md)
+includes per-stage output, timings and solver versions. It can be checked
+without repeating the LP solves.
+
+The [upper-witness software](generation/UPPER_WITNESSES.md) provides feasible
+simulated-annealing/population search and the C2000.9 frozen-tail integer
+optimization. Its instructions distinguish searching for a coloring,
+checking the published assignments, and reproducing the documented tail
+improvement. A stochastic search is not a promise to rediscover each
+published witness within a specified budget.
+
+These generation programs have additional numerical-library dependencies;
+they are not required for the original solver-free certificate replays.

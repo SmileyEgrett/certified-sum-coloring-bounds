@@ -1,0 +1,28 @@
+{
+  "model_status": "Optimal",
+  "solution_value_valid": true,
+  "objective": 2530.0,
+  "dual_bound": 2530.0,
+  "mip_gap": 0.0,
+  "nodes": 1,
+  "simplex_iterations": 558,
+  "runtime_seconds": 0.15187478065490723,
+  "verified_full_sum": 382379,
+  "tail_local_sum": 2530,
+  "tail_classes": 40,
+  "tail_profile": {
+    "1": 1,
+    "2": 4,
+    "3": 11,
+    "4": 24
+  },
+  "full_profile": {
+    "1": 1,
+    "2": 4,
+    "3": 11,
+    "4": 24,
+    "5": 310,
+    "6": 52
+  },
+  "total_wall_seconds": 7.4042851640842855
+}

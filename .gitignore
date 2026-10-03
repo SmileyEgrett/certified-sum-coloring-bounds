@@ -20,3 +20,8 @@ __pycache__/
 *.col.b
 /graphs/
 *.part.*
+
+# Local generation environments and output
+/lower-environment/
+/lower-run*/
+/lower-reference-check*/

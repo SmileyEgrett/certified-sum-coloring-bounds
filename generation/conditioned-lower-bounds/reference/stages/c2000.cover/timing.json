@@ -1,0 +1,22 @@
+{
+  "attempt": "attempt-001",
+  "case": "c2000",
+  "category": "generation",
+  "child_time": {
+    "max_rss_kib": 73192.0,
+    "system_seconds": 0.08,
+    "user_seconds": 0.5
+  },
+  "finished": "2026-10-01T01:37:49.661931+00:00",
+  "inclusive_wall_seconds": 5.01747075188905,
+  "phase_wall_seconds": {
+    "admission_and_inputs": 2.5618299529887736,
+    "mathematical_process": 1.070490718819201,
+    "postprocess": 1.385506140999496
+  },
+  "stage": "c2000.cover",
+  "started": "2026-10-01T01:37:44.644488+00:00",
+  "status": "success",
+  "supervisor_system_seconds": 0.21403600000000012,
+  "supervisor_user_seconds": 2.291641000000027
+}

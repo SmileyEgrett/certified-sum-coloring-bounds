@@ -1,0 +1,13 @@
+{
+  "architecture": "x86_64",
+  "cores_per_socket": 18,
+  "cpu_model": "Intel(R) Core(TM) i9-7980XE CPU @ 2.60GHz",
+  "execution_context": "Shared workstation; reproduction pinned to one CPU, with other workloads active on other cores.",
+  "host_mem_total_kib": 65715748,
+  "logical_cpus": 18,
+  "observed_utc": "2026-09-30T19:02:31.373348+00:00",
+  "run_cpu_count": 1,
+  "run_memory_cap_bytes": 4294967296,
+  "sockets": 1,
+  "threads_per_core": 1
+}

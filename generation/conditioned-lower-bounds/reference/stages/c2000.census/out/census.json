@@ -1,0 +1,62 @@
+{
+  "alpha": 6,
+  "counts_by_size": [
+    2000,
+    199468,
+    1322912,
+    656504,
+    26224,
+    90
+  ],
+  "families": {
+    "1": {
+      "count": 2000,
+      "file": "stable_sets_size_1.tsv.gz",
+      "file_sha256": "fc2d1c4aac98d7f92ce5c3429da14db938742a4f63f721e97a09eb387e6143e9",
+      "semantic_sha256": "6251e5743b6fd6a7d606130bdf7c15077ce85ebd3a0fdee284d15a46df199e38"
+    },
+    "2": {
+      "count": 199468,
+      "file": "stable_sets_size_2.tsv.gz",
+      "file_sha256": "e289cc5dd38df590990950b751bb16384a9268a2203776b1179e6df2995892f3",
+      "semantic_sha256": "cf847e90df6c7096c32b568c29da3813e4b59c46b9966dbaefc3d29008cb5dad"
+    },
+    "3": {
+      "count": 1322912,
+      "file": "stable_sets_size_3.tsv.gz",
+      "file_sha256": "c24a0948ec3b3311c0d5fd1b104ff30a6cb08c5d4af1c2b1439f789f038de66e",
+      "semantic_sha256": "aada087f53d7046be9a1ddb56e686d8b757e3ac7fc958fda3b852aa165ad232c"
+    },
+    "4": {
+      "count": 656504,
+      "file": "stable_sets_size_4.tsv.gz",
+      "file_sha256": "b4182ab7871a451ec9eb92281f7d5bbb6a22901b066cbb66084ea76cf221a119",
+      "semantic_sha256": "723d8aee3c7730f3b2f3be66f0a5ef9c0b6c0913028b4382d1707dc7a7555c42"
+    },
+    "5": {
+      "count": 26224,
+      "file": "stable_sets_size_5.tsv.gz",
+      "file_sha256": "285fa91065b531d5d9a2c6b7b3de317cda6a732bff9f93536d9d393aa317cbb3",
+      "semantic_sha256": "46f4f48990c50a089357ee246d37e3fd186a8298b6df182dee5488e2a24c12ae"
+    },
+    "6": {
+      "count": 90,
+      "file": "stable_sets_size_6.tsv.gz",
+      "file_sha256": "d5f3ba71d5dbb43b59360ecca10334f278ebc20d931a3f89fcec36575e36fb3b",
+      "semantic_sha256": "01559d23dc8d04cc9e03b7ad701a7709410930395999687849804a3c8aef7674"
+    }
+  },
+  "graph": "input/graphs/C2000.9.col",
+  "graph_raw_sha256": "aa4b1d7df7f9c1afbf8c9f35fcf5bdfc6370fd27db5c9f3fd5409dfd0d164f16",
+  "nonempty_total": 2207198,
+  "peak_rss_kib": 20792,
+  "schema": "stable_set_stream_census_v1",
+  "timing_seconds": {
+    "enumerate_and_write": 22.117628603708,
+    "parse": 2.832421737257391,
+    "total": 24.95005034096539
+  },
+  "unique_edges": 1799532,
+  "vertices": 2000,
+  "weighted_incidence_total": 7127348
+}

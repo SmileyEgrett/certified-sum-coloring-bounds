@@ -1,0 +1,28 @@
+{
+  "schema": "frozen_tail_v1",
+  "graph": "C2000.9.col",
+  "graph_sha256": "aa4b1d7df7f9c1afbf8c9f35fcf5bdfc6370fd27db5c9f3fd5409dfd0d164f16",
+  "source_coloring": "source-382384.coloring",
+  "source_coloring_sha256": "8b3ff984e92d19de183402d1e2d26345b2321006e5a9f6db8e7950ce5ab3eb19",
+  "vertices": 2000,
+  "edges": 1799532,
+  "frozen_classes": 362,
+  "frozen_profile": {
+    "5": 310,
+    "6": 52
+  },
+  "tail_vertices": 138,
+  "tail_alpha": 4,
+  "tail_stable_sets": 2051,
+  "tail_stable_sets_by_size": {
+    "1": 138,
+    "2": 1110,
+    "3": 739,
+    "4": 64
+  },
+  "model_rows": 142,
+  "model_columns": 2338,
+  "model_nonzeros": 9949,
+  "threads": 1,
+  "time_limit": null
+}

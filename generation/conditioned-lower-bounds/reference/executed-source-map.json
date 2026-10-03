@@ -1,0 +1,250 @@
+[
+  {
+    "edits": [],
+    "executed_source": "checkers/c2000/census_stable_sets.cpp",
+    "original_sha256": "0b2c5c7bcc3abf1b508d6b937ccc7f103fd8008b61d710c6c9d88ce834daee4a",
+    "public": "generation/conditioned-lower-bounds/source/checkers/c2000/census_stable_sets.cpp",
+    "public_sha256": "0b2c5c7bcc3abf1b508d6b937ccc7f103fd8008b61d710c6c9d88ce834daee4a",
+    "same_python_ast": null
+  },
+  {
+    "edits": [],
+    "executed_source": "checkers/c2000/verify_c2000_9_top_envelope.py",
+    "original_sha256": "87368cae45b6093be9f43cd346f21f14c6eadc42e28676ae61f050c58e7b98c3",
+    "public": "generation/conditioned-lower-bounds/source/checkers/c2000/verify_c2000_9_top_envelope.py",
+    "public_sha256": "87368cae45b6093be9f43cd346f21f14c6eadc42e28676ae61f050c58e7b98c3",
+    "same_python_ast": true
+  },
+  {
+    "edits": [],
+    "executed_source": "checkers/dsjc1000/verify_release.py",
+    "original_sha256": "126972dafdd93842c1d73e309f9836352c51d2b567c34e44377d9544cc87d73a",
+    "public": "generation/conditioned-lower-bounds/source/checkers/dsjc1000/verify_release.py",
+    "public_sha256": "126972dafdd93842c1d73e309f9836352c51d2b567c34e44377d9544cc87d73a",
+    "same_python_ast": true
+  },
+  {
+    "edits": [],
+    "executed_source": "checkers/dsjc250/verify.py",
+    "original_sha256": "05570e40fb3c464653a843d7c54ba95b30b6a3989608773b08cf50ae0fa46b72",
+    "public": "generation/conditioned-lower-bounds/source/checkers/dsjc250/verify.py",
+    "public_sha256": "05570e40fb3c464653a843d7c54ba95b30b6a3989608773b08cf50ae0fa46b72",
+    "same_python_ast": true
+  },
+  {
+    "edits": [],
+    "executed_source": "checkers/dsjc500/baseline_verify.py",
+    "original_sha256": "3069b1d4018046258273a6bb8a605913cae8dfb946e7082a0ad0b9521cc9159c",
+    "public": "generation/conditioned-lower-bounds/source/checkers/dsjc500/baseline_verify.py",
+    "public_sha256": "3069b1d4018046258273a6bb8a605913cae8dfb946e7082a0ad0b9521cc9159c",
+    "same_python_ast": true
+  },
+  {
+    "edits": [],
+    "executed_source": "existing/c2000/enumerate_stable_sets_bitset.py",
+    "original_sha256": "8564b836d24811f484d259842cb7b78c87b1acb0f8ebd7f9029c4b779fbf7a98",
+    "public": "generation/conditioned-lower-bounds/source/existing/c2000/enumerate_stable_sets_bitset.py",
+    "public_sha256": "8564b836d24811f484d259842cb7b78c87b1acb0f8ebd7f9029c4b779fbf7a98",
+    "same_python_ast": true
+  },
+  {
+    "edits": [],
+    "executed_source": "existing/dsjc1000/cert_common.py",
+    "original_sha256": "aefe5b9616eef70a5ff4e752be5cf86ddaef73378b205e8e61f36554e80e69a5",
+    "public": "generation/conditioned-lower-bounds/source/existing/dsjc1000/cert_common.py",
+    "public_sha256": "aefe5b9616eef70a5ff4e752be5cf86ddaef73378b205e8e61f36554e80e69a5",
+    "same_python_ast": true
+  },
+  {
+    "edits": [],
+    "executed_source": "existing/dsjc1000/reconstruct_instance.py",
+    "original_sha256": "497a667b55de38479349f474adcf72070232e653cee5d3c3be998a3f103c514a",
+    "public": "generation/conditioned-lower-bounds/source/existing/dsjc1000/reconstruct_instance.py",
+    "public_sha256": "497a667b55de38479349f474adcf72070232e653cee5d3c3be998a3f103c514a",
+    "same_python_ast": true
+  },
+  {
+    "edits": [],
+    "executed_source": "existing/dsjc1000/solve_conditional_lp.py",
+    "original_sha256": "1b882ebe537ad6417f52926907132d2d9ba85b1721a4f914482529a0f6c7fb80",
+    "public": "generation/conditioned-lower-bounds/source/existing/dsjc1000/solve_conditional_lp.py",
+    "public_sha256": "1b882ebe537ad6417f52926907132d2d9ba85b1721a4f914482529a0f6c7fb80",
+    "same_python_ast": true
+  },
+  {
+    "edits": [],
+    "executed_source": "existing/dsjc1000/solve_conditional_lp_q5cap.py",
+    "original_sha256": "cc2cf61ddfc0225769bef95d4fa21eb077c902c5f9000e2d256889b378514868",
+    "public": "generation/conditioned-lower-bounds/source/existing/dsjc1000/solve_conditional_lp_q5cap.py",
+    "public_sha256": "cc2cf61ddfc0225769bef95d4fa21eb077c902c5f9000e2d256889b378514868",
+    "same_python_ast": true
+  },
+  {
+    "edits": [],
+    "executed_source": "existing/dsjc1000/solve_size5_packing_lp.py",
+    "original_sha256": "0cfff385d7535f86fdbba21495ad14b43153c538c4a77a356a07dbeecd419e86",
+    "public": "generation/conditioned-lower-bounds/source/existing/dsjc1000/solve_size5_packing_lp.py",
+    "public_sha256": "0cfff385d7535f86fdbba21495ad14b43153c538c4a77a356a07dbeecd419e86",
+    "same_python_ast": true
+  },
+  {
+    "edits": [],
+    "executed_source": "existing/dsjc250/generate_lpbb.py",
+    "original_sha256": "c07996e8a02b50b23012b330c20a0c3a35e8ba0f849ac7004d8dc016d38d5a97",
+    "public": "generation/conditioned-lower-bounds/source/existing/dsjc250/generate_lpbb.py",
+    "public_sha256": "c07996e8a02b50b23012b330c20a0c3a35e8ba0f849ac7004d8dc016d38d5a97",
+    "same_python_ast": true
+  },
+  {
+    "edits": [],
+    "executed_source": "existing/dsjc500/baseline/common.py",
+    "original_sha256": "4860a347aff35c1fdbdc3265429f90fe1de5c76cec58f35d9d29c4f2e9d7c025",
+    "public": "generation/conditioned-lower-bounds/source/existing/dsjc500/baseline/common.py",
+    "public_sha256": "4860a347aff35c1fdbdc3265429f90fe1de5c76cec58f35d9d29c4f2e9d7c025",
+    "same_python_ast": true
+  },
+  {
+    "edits": [],
+    "executed_source": "existing/dsjc500/baseline/find_farkas.py",
+    "original_sha256": "6fede86d5f4468d74a0f9cea766259747b725d32e3beaa954f6be9d1faae1c69",
+    "public": "generation/conditioned-lower-bounds/source/existing/dsjc500/baseline/find_farkas.py",
+    "public_sha256": "6fede86d5f4468d74a0f9cea766259747b725d32e3beaa954f6be9d1faae1c69",
+    "same_python_ast": true
+  },
+  {
+    "edits": [],
+    "executed_source": "existing/dsjc500/baseline/find_profile_farkas.py",
+    "original_sha256": "1a84889bbc164eb61e3bbdd549f749292882e94b2b05a4bc3054717a6991b718",
+    "public": "generation/conditioned-lower-bounds/source/existing/dsjc500/baseline/find_profile_farkas.py",
+    "public_sha256": "1a84889bbc164eb61e3bbdd549f749292882e94b2b05a4bc3054717a6991b718",
+    "same_python_ast": true
+  },
+  {
+    "edits": [],
+    "executed_source": "existing/dsjc500/baseline/generate_k4_lpbb_cert.py",
+    "original_sha256": "c634db9f68767999ff9bfd1ca69cfc1a3900a587173afc1630cd80b66f165372",
+    "public": "generation/conditioned-lower-bounds/source/existing/dsjc500/baseline/generate_k4_lpbb_cert.py",
+    "public_sha256": "c634db9f68767999ff9bfd1ca69cfc1a3900a587173afc1630cd80b66f165372",
+    "same_python_ast": true
+  },
+  {
+    "edits": [],
+    "executed_source": "existing/dsjc500/baseline/make_clean_farkas.py",
+    "original_sha256": "74b1c32191253c68037bc4fddd8152669c49019c94cd4fb9f5a42c0bb9f21fbf",
+    "public": "generation/conditioned-lower-bounds/source/existing/dsjc500/baseline/make_clean_farkas.py",
+    "public_sha256": "74b1c32191253c68037bc4fddd8152669c49019c94cd4fb9f5a42c0bb9f21fbf",
+    "same_python_ast": true
+  },
+  {
+    "edits": [],
+    "executed_source": "existing/dsjc500/delta/common.py",
+    "original_sha256": "4860a347aff35c1fdbdc3265429f90fe1de5c76cec58f35d9d29c4f2e9d7c025",
+    "public": "generation/conditioned-lower-bounds/source/existing/dsjc500/delta/common.py",
+    "public_sha256": "4860a347aff35c1fdbdc3265429f90fe1de5c76cec58f35d9d29c4f2e9d7c025",
+    "same_python_ast": true
+  },
+  {
+    "edits": [],
+    "executed_source": "existing/dsjc500/delta/exact_mscp_conditional_discover.py",
+    "original_sha256": "3b0a059226e6379ce02450960ae1392615ee2316b8c90e7f36e72e1b40e3dc15",
+    "public": "generation/conditioned-lower-bounds/source/existing/dsjc500/delta/exact_mscp_conditional_discover.py",
+    "public_sha256": "3b0a059226e6379ce02450960ae1392615ee2316b8c90e7f36e72e1b40e3dc15",
+    "same_python_ast": true
+  },
+  {
+    "edits": [
+      "Remove internal qualifier from one error message."
+    ],
+    "executed_source": "existing/dsjc500/delta/exact_mscp_conditional_verify.py",
+    "original_sha256": "2b6f0589b13f46e156a44b330ba1c7445d07f89398ebb76b47f3d9cd392a1b23",
+    "public": "generation/conditioned-lower-bounds/source/existing/dsjc500/delta/exact_mscp_conditional_verify.py",
+    "public_sha256": "c73acad8d9fe62376b31ec4ea9cc1a4f6c94480c2edd935cd67c899fd66cea16",
+    "same_python_ast": false
+  },
+  {
+    "edits": [],
+    "executed_source": "existing/dsjc500/delta/generate_residual_kset_lpbb.py",
+    "original_sha256": "b6780f5209c8bab3e4fbb78e133893d6c5804e0cc73c42079e58586be4550b9b",
+    "public": "generation/conditioned-lower-bounds/source/existing/dsjc500/delta/generate_residual_kset_lpbb.py",
+    "public_sha256": "b6780f5209c8bab3e4fbb78e133893d6c5804e0cc73c42079e58586be4550b9b",
+    "same_python_ast": true
+  },
+  {
+    "edits": [],
+    "executed_source": "existing/dsjc500/delta/make_conditional_model.py",
+    "original_sha256": "a3a8e65004480d8ee964129764f98ebf8979736dca62218a80f5d04967cbe962",
+    "public": "generation/conditioned-lower-bounds/source/existing/dsjc500/delta/make_conditional_model.py",
+    "public_sha256": "a3a8e65004480d8ee964129764f98ebf8979736dca62218a80f5d04967cbe962",
+    "same_python_ast": true
+  },
+  {
+    "edits": [],
+    "executed_source": "existing/dsjc500/delta/verify_conditional_tree.py",
+    "original_sha256": "4a2e951ad4150ddc9a1a97aff52a803f9a11525c70a469e5eb075763ab6ba493",
+    "public": "generation/conditioned-lower-bounds/source/existing/dsjc500/delta/verify_conditional_tree.py",
+    "public_sha256": "4a2e951ad4150ddc9a1a97aff52a803f9a11525c70a469e5eb075763ab6ba493",
+    "same_python_ast": true
+  },
+  {
+    "edits": [],
+    "executed_source": "existing/dsjc500/delta/verify_residual_kset_lpbb.py",
+    "original_sha256": "144a0ca1cf79531419c37c1ab9c6c40885ff30a8327255a8460f4e99031af8cd",
+    "public": "generation/conditioned-lower-bounds/source/existing/dsjc500/delta/verify_residual_kset_lpbb.py",
+    "public_sha256": "144a0ca1cf79531419c37c1ab9c6c40885ff30a8327255a8460f4e99031af8cd",
+    "same_python_ast": true
+  },
+  {
+    "edits": [],
+    "executed_source": "new/construct.py",
+    "original_sha256": "e0ddb7dc5ad43908232cd10faadc271ec4f8762aff660ad07657dbdb73832234",
+    "public": "generation/conditioned-lower-bounds/source/new/construct.py",
+    "public_sha256": "e0ddb7dc5ad43908232cd10faadc271ec4f8762aff660ad07657dbdb73832234",
+    "same_python_ast": true
+  },
+  {
+    "edits": [
+      "Use selected Python interpreter; keep assertion and provenance checks."
+    ],
+    "executed_source": "new/core.py",
+    "original_sha256": "8265bb8d7f037274f738ddc4dbc89e556980b381950ac7807d2634e3f0cd929a",
+    "public": "generation/conditioned-lower-bounds/source/new/core.py",
+    "public_sha256": "cd4f4e10349f028836071cfb931c7957e4d64d76e442804e756c3659ccfa172a",
+    "same_python_ast": false
+  },
+  {
+    "edits": [],
+    "executed_source": "new/exactmath.py",
+    "original_sha256": "681e278518bf0b111e10130d7cbc2c5feb9313223f423b945db36f5103f3642f",
+    "public": "generation/conditioned-lower-bounds/source/new/exactmath.py",
+    "public_sha256": "681e278518bf0b111e10130d7cbc2c5feb9313223f423b945db36f5103f3642f",
+    "same_python_ast": true
+  },
+  {
+    "edits": [],
+    "executed_source": "new/numerical.py",
+    "original_sha256": "bed524099b92187576a9bc7c7843925aae8806efc4add33eb0e5f6fa4bbbcadd",
+    "public": "generation/conditioned-lower-bounds/source/new/numerical.py",
+    "public_sha256": "bed524099b92187576a9bc7c7843925aae8806efc4add33eb0e5f6fa4bbbcadd",
+    "same_python_ast": true
+  },
+  {
+    "edits": [
+      "Remove development-history comment; executable AST unchanged."
+    ],
+    "executed_source": "new/verify_lower.py",
+    "original_sha256": "85070f6b07d3ffc35cbbabc4b02bdb5db83ac903c1c118596be69a7ae074e133",
+    "public": "generation/conditioned-lower-bounds/source/new/verify_lower.py",
+    "public_sha256": "bbc38ca1db038d745af1fc3c8fb2d29797305df24e5860dd98d4fbe0db4e5b29",
+    "same_python_ast": true
+  },
+  {
+    "edits": [
+      "Recognize selected Python interpreter for in-process script dispatch."
+    ],
+    "executed_source": "new/worker.py",
+    "original_sha256": "cbfce9ee1c1c93eb53eaafab4b4ee8be94d351b85a9da09ae8c4583f90eda31b",
+    "public": "generation/conditioned-lower-bounds/source/new/worker.py",
+    "public_sha256": "3ed7066beb8ceacd5937173a31ef42b5b3bbaac231295db978a1dd3f55a22181",
+    "same_python_ast": false
+  }
+]

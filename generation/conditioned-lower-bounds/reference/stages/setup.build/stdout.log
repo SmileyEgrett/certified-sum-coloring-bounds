@@ -1,0 +1,1 @@
+{"retained_argv": ["/usr/bin/g++", "-std=c++20", "-O2", "<source>/checkers/c2000/census_stable_sets.cpp", "-o", "<run>/jobs/setup.build/attempt-001/out/c2000-census"]}

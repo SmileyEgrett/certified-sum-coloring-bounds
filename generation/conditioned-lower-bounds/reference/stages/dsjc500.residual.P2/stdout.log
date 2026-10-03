@@ -1,0 +1,16 @@
+{"retained_argv": ["/usr/bin/python3", "<source>/existing/dsjc500/delta/generate_residual_kset_lpbb.py", "--graph", "<source>/input/graphs/DSJC500.9.col", "--top-size", "5", "--residual-set-size", "4", "--packing-number", "2", "--dual", "<run>/jobs/dsjc500.seed.P2/attempt-001/out/k4dual_P2.txt", "--dual-denominator", "1000000000000", "--leaf-denominator", "1000000000", "--time-limit", "0", "--node-limit", "0", "--out", "<run>/jobs/dsjc500.residual.P2/attempt-001/out/proof.json.gz"]}
+{"numerical_runtime": {"python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]", "numpy": "1.26.4", "scipy": "1.15.3", "HiGHS_version": "1.8.0", "actual_HiGHS_threads": 1, "post_solve_tid_affinities": {"731582": [6]}, "worker_tid_limit": 1, "actual_native_limits": {"threads": 1, "time_limit": "infinity", "mip_max_nodes": 2147483647, "simplex_iteration_limit": 2147483647, "ipm_iteration_limit": 2147483647}}}
+{
+  "packing": 2,
+  "old_bound": 101,
+  "new_bound": 100,
+  "allowed": 1170,
+  "branches": 428,
+  "dual_leaves": 429,
+  "count_leaves": 0,
+  "budget_leaves": 0,
+  "records": 857,
+  "calls": 857,
+  "max_depth": 15,
+  "generation_seconds": 89.03048057388514
+}

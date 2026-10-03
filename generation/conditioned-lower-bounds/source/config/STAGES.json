@@ -1,0 +1,3681 @@
+{
+  "environment": {
+    "BLIS_NUM_THREADS": "1",
+    "LC_ALL": "C",
+    "MKL_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONHASHSEED": "0",
+    "VECLIB_MAXIMUM_THREADS": "1"
+  },
+  "execution_policy": {
+    "memory_limit_bytes": 4294967296,
+    "swap_limit_bytes": 0,
+    "time_node_work_limits": "unlimited"
+  },
+  "graphs": {
+    "c2000": {
+      "name": "C2000.9",
+      "run_input": "input/graphs/C2000.9.col",
+      "sha256": "aa4b1d7df7f9c1afbf8c9f35fcf5bdfc6370fd27db5c9f3fd5409dfd0d164f16",
+      "target": 381823
+    },
+    "dsjc1000": {
+      "counts_by_size_including_empty_next": [
+        1000,
+        50051,
+        167104,
+        41659,
+        869,
+        3,
+        0
+      ],
+      "name": "DSJC1000.9",
+      "run_input": "input/graphs/DSJC1000.9.col",
+      "sha256": "b73613d4ec2eb988ff124258ebff728a2c08e603c778c7547a15f320a79f61c6",
+      "target": 102344
+    },
+    "dsjc250": {
+      "counts_by_size_including_empty_next": [
+        250,
+        3228,
+        2869,
+        205,
+        3,
+        0
+      ],
+      "name": "DSJC250.9",
+      "run_input": "input/graphs/DSJC250.9.col",
+      "sha256": "1b90f811e4d44f8937075865790b845e986b08b9da53caea57b2adf1c57383e7",
+      "target": 8277
+    },
+    "dsjc500": {
+      "counts_by_size_including_empty_next": [
+        500,
+        12313,
+        19901,
+        2428,
+        23,
+        0
+      ],
+      "name": "DSJC500.9",
+      "run_input": "input/graphs/DSJC500.9.col",
+      "sha256": "95276841dffcde7c04de2fc1ae8e43b6c7b84173b4a9646b1cc6b392a3bd7b39",
+      "target": 29791
+    }
+  },
+  "order": [
+    "dsjc250",
+    "dsjc500",
+    "dsjc1000",
+    "c2000"
+  ],
+  "receipts": [
+    "dsjc250.verify",
+    "dsjc500.verify",
+    "dsjc1000.cap_verify",
+    "dsjc1000.verify",
+    "c2000.bind_census",
+    "c2000.verify"
+  ],
+  "schema": "conditioned_public_stages_v1",
+  "stages": [
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "setup.build",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "common",
+      "category": "setup",
+      "depends_on": [],
+      "id": "setup.build",
+      "outputs": {
+        "binary": "${OUT}/c2000-census"
+      },
+      "retained_argv": [
+        "g++",
+        "-std=c++20",
+        "-O2",
+        "${SNAPSHOT}/checkers/c2000/census_stable_sets.cpp",
+        "-o",
+        "${OUT}/c2000-census"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc250.reconstruct",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc250",
+      "category": "generation",
+      "depends_on": [],
+      "id": "dsjc250.reconstruct",
+      "outputs": {
+        "profiles": "${OUT}/profiles.json",
+        "reconstruction": "${OUT}/reconstruction.json",
+        "scenarios": "${OUT}/scenarios.json",
+        "sets": "${OUT}/sets"
+      }
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.reconstruct",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [],
+      "id": "dsjc500.reconstruct",
+      "outputs": {
+        "profiles": "${OUT}/profiles.json",
+        "reconstruction": "${OUT}/reconstruction.json",
+        "scenarios": "${OUT}/scenarios.json",
+        "sets": "${OUT}/sets"
+      }
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc1000.reconstruct",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc1000",
+      "category": "generation",
+      "depends_on": [],
+      "id": "dsjc1000.reconstruct",
+      "outputs": {
+        "reconstruction": "${OUT}/reconstruction.json",
+        "scenarios": "${OUT}/scenarios.json",
+        "sets": "${OUT}/sets"
+      }
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc250.dual.ge4_global",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc250",
+      "category": "generation",
+      "depends_on": [
+        "dsjc250.reconstruct"
+      ],
+      "id": "dsjc250.dual.ge4_global",
+      "outputs": {
+        "certificate": "${OUT}/ge4_global.rational",
+        "model": "${OUT}/model.json",
+        "numerical": "${OUT}/numerical.npz"
+      }
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc250.dual.ge4_h5_eq_2",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc250",
+      "category": "generation",
+      "depends_on": [
+        "dsjc250.reconstruct"
+      ],
+      "id": "dsjc250.dual.ge4_h5_eq_2",
+      "outputs": {
+        "certificate": "${OUT}/ge4_h5_eq_2.rational",
+        "model": "${OUT}/model.json",
+        "numerical": "${OUT}/numerical.npz"
+      }
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc250.dual.h5_1_forbid_x1",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc250",
+      "category": "generation",
+      "depends_on": [
+        "dsjc250.reconstruct"
+      ],
+      "id": "dsjc250.dual.h5_1_forbid_x1",
+      "outputs": {
+        "certificate": "${OUT}/dual_h5_1_forbid_x1.rational",
+        "model": "${OUT}/model.json",
+        "numerical": "${OUT}/numerical.npz"
+      }
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc250.dual.h5_1_x3_slack",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc250",
+      "category": "generation",
+      "depends_on": [
+        "dsjc250.reconstruct"
+      ],
+      "id": "dsjc250.dual.h5_1_x3_slack",
+      "outputs": {
+        "certificate": "${OUT}/dual_h5_1_x3_slack.rational",
+        "model": "${OUT}/model.json",
+        "numerical": "${OUT}/numerical.npz"
+      }
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc250.dual.h5_2_forbid_x1_x3",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc250",
+      "category": "generation",
+      "depends_on": [
+        "dsjc250.reconstruct"
+      ],
+      "id": "dsjc250.dual.h5_2_forbid_x1_x3",
+      "outputs": {
+        "certificate": "${OUT}/dual_h5_2_forbid_x1_x3.rational",
+        "model": "${OUT}/model.json",
+        "numerical": "${OUT}/numerical.npz"
+      }
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc250.tree.quad_x2",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc250",
+      "category": "generation",
+      "depends_on": [
+        "dsjc250.reconstruct"
+      ],
+      "id": "dsjc250.tree.quad_x2",
+      "outputs": {
+        "proof": "${OUT}/quad_x2.proof.json.gz"
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc250/generate_lpbb.py",
+        "quad_x2",
+        "${OUT}/quad_x2.proof.json.gz",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc250.tree.env_x3",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc250",
+      "category": "generation",
+      "depends_on": [
+        "dsjc250.reconstruct"
+      ],
+      "id": "dsjc250.tree.env_x3",
+      "outputs": {
+        "proof": "${OUT}/env_x3.proof.json.gz"
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc250/generate_lpbb.py",
+        "env_x3",
+        "${OUT}/env_x3.proof.json.gz",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc250.tree.env_x1x2",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc250",
+      "category": "generation",
+      "depends_on": [
+        "dsjc250.reconstruct"
+      ],
+      "id": "dsjc250.tree.env_x1x2",
+      "outputs": {
+        "proof": "${OUT}/env_x1x2.proof.json.gz"
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc250/generate_lpbb.py",
+        "env_x1x2",
+        "${OUT}/env_x1x2.proof.json.gz",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc250.tree.env_x2",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc250",
+      "category": "generation",
+      "depends_on": [
+        "dsjc250.reconstruct"
+      ],
+      "id": "dsjc250.tree.env_x2",
+      "outputs": {
+        "proof": "${OUT}/env_x2.proof.json.gz"
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc250/generate_lpbb.py",
+        "env_x2",
+        "${OUT}/env_x2.proof.json.gz",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc250.tree.pair_H2F",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc250",
+      "category": "generation",
+      "depends_on": [
+        "dsjc250.reconstruct"
+      ],
+      "id": "dsjc250.tree.pair_H2F",
+      "outputs": {
+        "proof": "${OUT}/pair_H2F.proof.json.gz"
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc250/generate_lpbb.py",
+        "pair_H2F",
+        "${OUT}/pair_H2F.proof.json.gz",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc250.tree.pair_H1C",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc250",
+      "category": "generation",
+      "depends_on": [
+        "dsjc250.reconstruct"
+      ],
+      "id": "dsjc250.tree.pair_H1C",
+      "outputs": {
+        "proof": "${OUT}/pair_H1C.proof.json.gz"
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc250/generate_lpbb.py",
+        "pair_H1C",
+        "${OUT}/pair_H1C.proof.json.gz",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc250.verify",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc250",
+      "category": "verification",
+      "depends_on": [
+        "dsjc250.reconstruct",
+        "dsjc250.dual.ge4_global",
+        "dsjc250.dual.ge4_h5_eq_2",
+        "dsjc250.dual.h5_1_forbid_x1",
+        "dsjc250.dual.h5_1_x3_slack",
+        "dsjc250.dual.h5_2_forbid_x1_x3",
+        "dsjc250.tree.quad_x2",
+        "dsjc250.tree.env_x3",
+        "dsjc250.tree.env_x1x2",
+        "dsjc250.tree.env_x2",
+        "dsjc250.tree.pair_H2F",
+        "dsjc250.tree.pair_H1C"
+      ],
+      "id": "dsjc250.verify",
+      "outputs": {
+        "coverage": "${OUT}/coverage.json",
+        "receipt": "${OUT}/verification.json"
+      },
+      "terminal_dependencies": true
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.seed.P1",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.reconstruct"
+      ],
+      "id": "dsjc500.seed.P1",
+      "outputs": {
+        "dual": "${OUT}/k4dual_P1.txt",
+        "model": "${OUT}/model.json",
+        "numerical": "${OUT}/numerical.npz"
+      }
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.residual.P1",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.seed.P1"
+      ],
+      "id": "dsjc500.residual.P1",
+      "optional_outputs": {
+        "proof": "${OUT}/proof.json.gz"
+      },
+      "outputs": {
+        "decision": "${OUT}/decision.json"
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc500/baseline/generate_k4_lpbb_cert.py",
+        "--graph",
+        "${SNAPSHOT}/input/graphs/DSJC500.9.col",
+        "--dual",
+        "${artifact:dsjc500.seed.P1:dual}",
+        "--packing",
+        "1",
+        "--time-limit",
+        "0",
+        "--node-limit",
+        "0",
+        "--out",
+        "${OUT}/proof.json.gz"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.seed.P2",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.reconstruct"
+      ],
+      "id": "dsjc500.seed.P2",
+      "outputs": {
+        "dual": "${OUT}/k4dual_P2.txt",
+        "model": "${OUT}/model.json",
+        "numerical": "${OUT}/numerical.npz"
+      }
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.residual.P2",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.seed.P2"
+      ],
+      "id": "dsjc500.residual.P2",
+      "optional_outputs": {
+        "proof": "${OUT}/proof.json.gz"
+      },
+      "outputs": {
+        "decision": "${OUT}/decision.json"
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc500/delta/generate_residual_kset_lpbb.py",
+        "--graph",
+        "${SNAPSHOT}/input/graphs/DSJC500.9.col",
+        "--top-size",
+        "5",
+        "--residual-set-size",
+        "4",
+        "--packing-number",
+        "2",
+        "--dual",
+        "${artifact:dsjc500.seed.P2:dual}",
+        "--dual-denominator",
+        "1000000000000",
+        "--leaf-denominator",
+        "1000000000",
+        "--time-limit",
+        "0",
+        "--node-limit",
+        "0",
+        "--out",
+        "${OUT}/proof.json.gz"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.seed.P3",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.reconstruct"
+      ],
+      "id": "dsjc500.seed.P3",
+      "outputs": {
+        "dual": "${OUT}/k4dual_P3.txt",
+        "model": "${OUT}/model.json",
+        "numerical": "${OUT}/numerical.npz"
+      }
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.residual.P3",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.seed.P3"
+      ],
+      "id": "dsjc500.residual.P3",
+      "optional_outputs": {
+        "proof": "${OUT}/proof.json.gz"
+      },
+      "outputs": {
+        "decision": "${OUT}/decision.json"
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc500/baseline/generate_k4_lpbb_cert.py",
+        "--graph",
+        "${SNAPSHOT}/input/graphs/DSJC500.9.col",
+        "--dual",
+        "${artifact:dsjc500.seed.P3:dual}",
+        "--packing",
+        "3",
+        "--time-limit",
+        "0",
+        "--node-limit",
+        "0",
+        "--out",
+        "${OUT}/proof.json.gz"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.seed.P4",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.reconstruct"
+      ],
+      "id": "dsjc500.seed.P4",
+      "outputs": {
+        "dual": "${OUT}/k4dual_P4.txt",
+        "model": "${OUT}/model.json",
+        "numerical": "${OUT}/numerical.npz"
+      }
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.residual.P4",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.seed.P4"
+      ],
+      "id": "dsjc500.residual.P4",
+      "optional_outputs": {
+        "proof": "${OUT}/proof.json.gz"
+      },
+      "outputs": {
+        "decision": "${OUT}/decision.json"
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc500/delta/generate_residual_kset_lpbb.py",
+        "--graph",
+        "${SNAPSHOT}/input/graphs/DSJC500.9.col",
+        "--top-size",
+        "5",
+        "--residual-set-size",
+        "4",
+        "--packing-number",
+        "4",
+        "--dual",
+        "${artifact:dsjc500.seed.P4:dual}",
+        "--dual-denominator",
+        "1000000000000",
+        "--leaf-denominator",
+        "1000000000",
+        "--time-limit",
+        "0",
+        "--node-limit",
+        "0",
+        "--out",
+        "${OUT}/proof.json.gz"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.seed.P5",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.reconstruct"
+      ],
+      "id": "dsjc500.seed.P5",
+      "outputs": {
+        "dual": "${OUT}/k4dual_P5.txt",
+        "model": "${OUT}/model.json",
+        "numerical": "${OUT}/numerical.npz"
+      }
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.residual.P5",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.seed.P5"
+      ],
+      "id": "dsjc500.residual.P5",
+      "optional_outputs": {
+        "proof": "${OUT}/proof.json.gz"
+      },
+      "outputs": {
+        "decision": "${OUT}/decision.json"
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc500/baseline/generate_k4_lpbb_cert.py",
+        "--graph",
+        "${SNAPSHOT}/input/graphs/DSJC500.9.col",
+        "--dual",
+        "${artifact:dsjc500.seed.P5:dual}",
+        "--packing",
+        "5",
+        "--time-limit",
+        "0",
+        "--node-limit",
+        "0",
+        "--out",
+        "${OUT}/proof.json.gz"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.seed.P6",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.reconstruct"
+      ],
+      "id": "dsjc500.seed.P6",
+      "outputs": {
+        "dual": "${OUT}/k4dual_P6.txt",
+        "model": "${OUT}/model.json",
+        "numerical": "${OUT}/numerical.npz"
+      }
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.residual.P6",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.seed.P6"
+      ],
+      "id": "dsjc500.residual.P6",
+      "optional_outputs": {
+        "proof": "${OUT}/proof.json.gz"
+      },
+      "outputs": {
+        "decision": "${OUT}/decision.json"
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc500/baseline/generate_k4_lpbb_cert.py",
+        "--graph",
+        "${SNAPSHOT}/input/graphs/DSJC500.9.col",
+        "--dual",
+        "${artifact:dsjc500.seed.P6:dual}",
+        "--packing",
+        "6",
+        "--time-limit",
+        "0",
+        "--node-limit",
+        "0",
+        "--out",
+        "${OUT}/proof.json.gz"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.seed.P7",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.reconstruct"
+      ],
+      "id": "dsjc500.seed.P7",
+      "outputs": {
+        "dual": "${OUT}/k4dual_P7.txt",
+        "model": "${OUT}/model.json",
+        "numerical": "${OUT}/numerical.npz"
+      }
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.residual.P7",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.seed.P7"
+      ],
+      "id": "dsjc500.residual.P7",
+      "optional_outputs": {
+        "proof": "${OUT}/proof.json.gz"
+      },
+      "outputs": {
+        "decision": "${OUT}/decision.json"
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc500/baseline/generate_k4_lpbb_cert.py",
+        "--graph",
+        "${SNAPSHOT}/input/graphs/DSJC500.9.col",
+        "--dual",
+        "${artifact:dsjc500.seed.P7:dual}",
+        "--packing",
+        "7",
+        "--time-limit",
+        "0",
+        "--node-limit",
+        "0",
+        "--out",
+        "${OUT}/proof.json.gz"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.seed.P8",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.reconstruct"
+      ],
+      "id": "dsjc500.seed.P8",
+      "outputs": {
+        "dual": "${OUT}/k4dual_P8.txt",
+        "model": "${OUT}/model.json",
+        "numerical": "${OUT}/numerical.npz"
+      }
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.residual.P8",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.seed.P8"
+      ],
+      "id": "dsjc500.residual.P8",
+      "optional_outputs": {
+        "proof": "${OUT}/proof.json.gz"
+      },
+      "outputs": {
+        "decision": "${OUT}/decision.json"
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc500/baseline/generate_k4_lpbb_cert.py",
+        "--graph",
+        "${SNAPSHOT}/input/graphs/DSJC500.9.col",
+        "--dual",
+        "${artifact:dsjc500.seed.P8:dual}",
+        "--packing",
+        "8",
+        "--time-limit",
+        "0",
+        "--node-limit",
+        "0",
+        "--out",
+        "${OUT}/proof.json.gz"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.farkas.P1",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.reconstruct"
+      ],
+      "id": "dsjc500.farkas.P1",
+      "outputs": {
+        "certificate": "${OUT}/certificate.json",
+        "raw": "${OUT}/farkas101_7_P1.json"
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc500/baseline/find_farkas.py",
+        "--graph",
+        "${SNAPSHOT}/input/graphs/DSJC500.9.col",
+        "--packing",
+        "1",
+        "--out",
+        "${OUT}/farkas101_7_P1.json"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.farkas.P2",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.reconstruct"
+      ],
+      "id": "dsjc500.farkas.P2",
+      "outputs": {
+        "certificate": "${OUT}/certificate.json",
+        "raw": "${OUT}/farkas101_7_P2.json"
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc500/baseline/find_farkas.py",
+        "--graph",
+        "${SNAPSHOT}/input/graphs/DSJC500.9.col",
+        "--packing",
+        "2",
+        "--out",
+        "${OUT}/farkas101_7_P2.json"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.farkas.P3",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.reconstruct"
+      ],
+      "id": "dsjc500.farkas.P3",
+      "outputs": {
+        "certificate": "${OUT}/certificate.json",
+        "raw": "${OUT}/farkas101_7_P3.json"
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc500/baseline/find_farkas.py",
+        "--graph",
+        "${SNAPSHOT}/input/graphs/DSJC500.9.col",
+        "--packing",
+        "3",
+        "--out",
+        "${OUT}/farkas101_7_P3.json"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.farkas.P4",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.reconstruct"
+      ],
+      "id": "dsjc500.farkas.P4",
+      "outputs": {
+        "certificate": "${OUT}/certificate.json",
+        "raw": "${OUT}/farkas101_7_P4.json"
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc500/baseline/find_farkas.py",
+        "--graph",
+        "${SNAPSHOT}/input/graphs/DSJC500.9.col",
+        "--packing",
+        "4",
+        "--out",
+        "${OUT}/farkas101_7_P4.json"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.farkas.P5",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.reconstruct"
+      ],
+      "id": "dsjc500.farkas.P5",
+      "outputs": {
+        "certificate": "${OUT}/certificate.json",
+        "raw": "${OUT}/farkas101_7_P5.json"
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc500/baseline/find_farkas.py",
+        "--graph",
+        "${SNAPSHOT}/input/graphs/DSJC500.9.col",
+        "--packing",
+        "5",
+        "--out",
+        "${OUT}/farkas101_7_P5.json"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.farkas.P6",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.reconstruct"
+      ],
+      "id": "dsjc500.farkas.P6",
+      "outputs": {
+        "certificate": "${OUT}/certificate.json",
+        "raw": "${OUT}/farkas101_7_P6.json"
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc500/baseline/find_farkas.py",
+        "--graph",
+        "${SNAPSHOT}/input/graphs/DSJC500.9.col",
+        "--packing",
+        "6",
+        "--out",
+        "${OUT}/farkas101_7_P6.json"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.farkas.P7",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.reconstruct"
+      ],
+      "id": "dsjc500.farkas.P7",
+      "outputs": {
+        "certificate": "${OUT}/certificate.json",
+        "raw": "${OUT}/farkas101_7_P7.json"
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc500/baseline/find_farkas.py",
+        "--graph",
+        "${SNAPSHOT}/input/graphs/DSJC500.9.col",
+        "--packing",
+        "7",
+        "--out",
+        "${OUT}/farkas101_7_P7.json"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.farkas.P8",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.reconstruct"
+      ],
+      "id": "dsjc500.farkas.P8",
+      "outputs": {
+        "certificate": "${OUT}/certificate.json",
+        "raw": "${OUT}/farkas101_7_P8.json"
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc500/baseline/find_farkas.py",
+        "--graph",
+        "${SNAPSHOT}/input/graphs/DSJC500.9.col",
+        "--packing",
+        "8",
+        "--out",
+        "${OUT}/farkas101_7_P8.json"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.profile_farkas.P1_1_1_6_101",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.reconstruct"
+      ],
+      "id": "dsjc500.profile_farkas.P1_1_1_6_101",
+      "outputs": {
+        "certificate": "${OUT}/certificate.json"
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc500/baseline/find_profile_farkas.py",
+        "--graph",
+        "${SNAPSHOT}/input/graphs/DSJC500.9.col",
+        "--packing",
+        "1",
+        "--h1",
+        "1",
+        "--h2",
+        "1",
+        "--h3",
+        "6",
+        "--h4",
+        "101",
+        "--out",
+        "${OUT}/certificate.json"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.profile_farkas.P3_1_1_6_101",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.reconstruct"
+      ],
+      "id": "dsjc500.profile_farkas.P3_1_1_6_101",
+      "outputs": {
+        "certificate": "${OUT}/certificate.json"
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc500/baseline/find_profile_farkas.py",
+        "--graph",
+        "${SNAPSHOT}/input/graphs/DSJC500.9.col",
+        "--packing",
+        "3",
+        "--h1",
+        "1",
+        "--h2",
+        "1",
+        "--h3",
+        "6",
+        "--h4",
+        "101",
+        "--out",
+        "${OUT}/certificate.json"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.profile_farkas.P3_0_3_5_101",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.reconstruct"
+      ],
+      "id": "dsjc500.profile_farkas.P3_0_3_5_101",
+      "outputs": {
+        "certificate": "${OUT}/certificate.json"
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc500/baseline/find_profile_farkas.py",
+        "--graph",
+        "${SNAPSHOT}/input/graphs/DSJC500.9.col",
+        "--packing",
+        "3",
+        "--h1",
+        "0",
+        "--h2",
+        "3",
+        "--h3",
+        "5",
+        "--h4",
+        "101",
+        "--out",
+        "${OUT}/certificate.json"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.model.P1_H36",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.reconstruct"
+      ],
+      "id": "dsjc500.model.P1_H36",
+      "outputs": {
+        "columns": {
+          "glob": "${OUT}/*.columns.tsv",
+          "required_count": 1
+        },
+        "model": {
+          "glob": "${OUT}/*.model.json",
+          "required_count": 1
+        }
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc500/delta/make_conditional_model.py",
+        "--graph",
+        "${SNAPSHOT}/input/graphs/DSJC500.9.col",
+        "--maximum-class-size",
+        "5",
+        "--packing-number",
+        "1",
+        "--scores",
+        "4:501,3:1",
+        "--caps",
+        "4:101,3:6",
+        "--strict-target",
+        "50607",
+        "--radix",
+        "501",
+        "--stable-node-limit",
+        "0",
+        "--top-packing-limit",
+        "0",
+        "--out-dir",
+        "${OUT}"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.weighted.P1_H36",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.model.P1_H36"
+      ],
+      "id": "dsjc500.weighted.P1_H36",
+      "outputs": {
+        "proof": "${OUT}/proof.json.gz"
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc500/delta/exact_mscp_conditional_discover.py",
+        "prove-model",
+        "--graph",
+        "${SNAPSHOT}/input/graphs/DSJC500.9.col",
+        "--model",
+        "${artifact:dsjc500.model.P1_H36:model}",
+        "--out",
+        "${OUT}/proof.json.gz",
+        "--witness-out",
+        "${OUT}/unexpected-witness.json",
+        "--node-limit",
+        "0",
+        "--time-limit",
+        "0",
+        "--stable-node-limit",
+        "0",
+        "--matching-vertex-limit",
+        "120",
+        "--workers",
+        "1",
+        "--denominator",
+        "1000000000",
+        "--maximum-json-bytes",
+        "0",
+        "--maximum-proof-bytes",
+        "0",
+        "--maximum-proof-records",
+        "0"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.model.P3_H36",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.reconstruct"
+      ],
+      "id": "dsjc500.model.P3_H36",
+      "outputs": {
+        "columns": {
+          "glob": "${OUT}/*.columns.tsv",
+          "required_count": 1
+        },
+        "model": {
+          "glob": "${OUT}/*.model.json",
+          "required_count": 1
+        }
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc500/delta/make_conditional_model.py",
+        "--graph",
+        "${SNAPSHOT}/input/graphs/DSJC500.9.col",
+        "--maximum-class-size",
+        "5",
+        "--packing-number",
+        "3",
+        "--scores",
+        "4:501,3:1",
+        "--caps",
+        "4:101,3:6",
+        "--strict-target",
+        "50607",
+        "--radix",
+        "501",
+        "--stable-node-limit",
+        "0",
+        "--top-packing-limit",
+        "0",
+        "--out-dir",
+        "${OUT}"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.weighted.P3_H36",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.model.P3_H36"
+      ],
+      "id": "dsjc500.weighted.P3_H36",
+      "outputs": {
+        "proof": "${OUT}/proof.json.gz"
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc500/delta/exact_mscp_conditional_discover.py",
+        "prove-model",
+        "--graph",
+        "${SNAPSHOT}/input/graphs/DSJC500.9.col",
+        "--model",
+        "${artifact:dsjc500.model.P3_H36:model}",
+        "--out",
+        "${OUT}/proof.json.gz",
+        "--witness-out",
+        "${OUT}/unexpected-witness.json",
+        "--node-limit",
+        "0",
+        "--time-limit",
+        "0",
+        "--stable-node-limit",
+        "0",
+        "--matching-vertex-limit",
+        "120",
+        "--workers",
+        "1",
+        "--denominator",
+        "1000000000",
+        "--maximum-json-bytes",
+        "0",
+        "--maximum-proof-bytes",
+        "0",
+        "--maximum-proof-records",
+        "0"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.model.P5_H36",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.reconstruct"
+      ],
+      "id": "dsjc500.model.P5_H36",
+      "outputs": {
+        "columns": {
+          "glob": "${OUT}/*.columns.tsv",
+          "required_count": 1
+        },
+        "model": {
+          "glob": "${OUT}/*.model.json",
+          "required_count": 1
+        }
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc500/delta/make_conditional_model.py",
+        "--graph",
+        "${SNAPSHOT}/input/graphs/DSJC500.9.col",
+        "--maximum-class-size",
+        "5",
+        "--packing-number",
+        "5",
+        "--scores",
+        "4:501,3:1",
+        "--caps",
+        "4:101,3:6",
+        "--strict-target",
+        "50607",
+        "--radix",
+        "501",
+        "--stable-node-limit",
+        "0",
+        "--top-packing-limit",
+        "0",
+        "--out-dir",
+        "${OUT}"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.weighted.P5_H36",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.model.P5_H36"
+      ],
+      "id": "dsjc500.weighted.P5_H36",
+      "outputs": {
+        "proof": "${OUT}/proof.json.gz"
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc500/delta/exact_mscp_conditional_discover.py",
+        "prove-model",
+        "--graph",
+        "${SNAPSHOT}/input/graphs/DSJC500.9.col",
+        "--model",
+        "${artifact:dsjc500.model.P5_H36:model}",
+        "--out",
+        "${OUT}/proof.json.gz",
+        "--witness-out",
+        "${OUT}/unexpected-witness.json",
+        "--node-limit",
+        "0",
+        "--time-limit",
+        "0",
+        "--stable-node-limit",
+        "0",
+        "--matching-vertex-limit",
+        "120",
+        "--workers",
+        "1",
+        "--denominator",
+        "1000000000",
+        "--maximum-json-bytes",
+        "0",
+        "--maximum-proof-bytes",
+        "0",
+        "--maximum-proof-records",
+        "0"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.model.P6_H36",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.reconstruct"
+      ],
+      "id": "dsjc500.model.P6_H36",
+      "outputs": {
+        "columns": {
+          "glob": "${OUT}/*.columns.tsv",
+          "required_count": 1
+        },
+        "model": {
+          "glob": "${OUT}/*.model.json",
+          "required_count": 1
+        }
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc500/delta/make_conditional_model.py",
+        "--graph",
+        "${SNAPSHOT}/input/graphs/DSJC500.9.col",
+        "--maximum-class-size",
+        "5",
+        "--packing-number",
+        "6",
+        "--scores",
+        "4:501,3:1",
+        "--caps",
+        "4:101,3:6",
+        "--strict-target",
+        "50607",
+        "--radix",
+        "501",
+        "--stable-node-limit",
+        "0",
+        "--top-packing-limit",
+        "0",
+        "--out-dir",
+        "${OUT}"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.weighted.P6_H36",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.model.P6_H36"
+      ],
+      "id": "dsjc500.weighted.P6_H36",
+      "outputs": {
+        "proof": "${OUT}/proof.json.gz"
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc500/delta/exact_mscp_conditional_discover.py",
+        "prove-model",
+        "--graph",
+        "${SNAPSHOT}/input/graphs/DSJC500.9.col",
+        "--model",
+        "${artifact:dsjc500.model.P6_H36:model}",
+        "--out",
+        "${OUT}/proof.json.gz",
+        "--witness-out",
+        "${OUT}/unexpected-witness.json",
+        "--node-limit",
+        "0",
+        "--time-limit",
+        "0",
+        "--stable-node-limit",
+        "0",
+        "--matching-vertex-limit",
+        "120",
+        "--workers",
+        "1",
+        "--denominator",
+        "1000000000",
+        "--maximum-json-bytes",
+        "0",
+        "--maximum-proof-bytes",
+        "0",
+        "--maximum-proof-records",
+        "0"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.model.P7_H36",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.reconstruct"
+      ],
+      "id": "dsjc500.model.P7_H36",
+      "outputs": {
+        "columns": {
+          "glob": "${OUT}/*.columns.tsv",
+          "required_count": 1
+        },
+        "model": {
+          "glob": "${OUT}/*.model.json",
+          "required_count": 1
+        }
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc500/delta/make_conditional_model.py",
+        "--graph",
+        "${SNAPSHOT}/input/graphs/DSJC500.9.col",
+        "--maximum-class-size",
+        "5",
+        "--packing-number",
+        "7",
+        "--scores",
+        "4:501,3:1",
+        "--caps",
+        "4:101,3:6",
+        "--strict-target",
+        "50607",
+        "--radix",
+        "501",
+        "--stable-node-limit",
+        "0",
+        "--top-packing-limit",
+        "0",
+        "--out-dir",
+        "${OUT}"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.weighted.P7_H36",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.model.P7_H36"
+      ],
+      "id": "dsjc500.weighted.P7_H36",
+      "outputs": {
+        "proof": "${OUT}/proof.json.gz"
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc500/delta/exact_mscp_conditional_discover.py",
+        "prove-model",
+        "--graph",
+        "${SNAPSHOT}/input/graphs/DSJC500.9.col",
+        "--model",
+        "${artifact:dsjc500.model.P7_H36:model}",
+        "--out",
+        "${OUT}/proof.json.gz",
+        "--witness-out",
+        "${OUT}/unexpected-witness.json",
+        "--node-limit",
+        "0",
+        "--time-limit",
+        "0",
+        "--stable-node-limit",
+        "0",
+        "--matching-vertex-limit",
+        "120",
+        "--workers",
+        "1",
+        "--denominator",
+        "1000000000",
+        "--maximum-json-bytes",
+        "0",
+        "--maximum-proof-bytes",
+        "0",
+        "--maximum-proof-records",
+        "0"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.model.P8_H36",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.reconstruct"
+      ],
+      "id": "dsjc500.model.P8_H36",
+      "outputs": {
+        "columns": {
+          "glob": "${OUT}/*.columns.tsv",
+          "required_count": 1
+        },
+        "model": {
+          "glob": "${OUT}/*.model.json",
+          "required_count": 1
+        }
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc500/delta/make_conditional_model.py",
+        "--graph",
+        "${SNAPSHOT}/input/graphs/DSJC500.9.col",
+        "--maximum-class-size",
+        "5",
+        "--packing-number",
+        "8",
+        "--scores",
+        "4:501,3:1",
+        "--caps",
+        "4:101,3:6",
+        "--strict-target",
+        "50607",
+        "--radix",
+        "501",
+        "--stable-node-limit",
+        "0",
+        "--top-packing-limit",
+        "0",
+        "--out-dir",
+        "${OUT}"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.weighted.P8_H36",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.model.P8_H36"
+      ],
+      "id": "dsjc500.weighted.P8_H36",
+      "outputs": {
+        "proof": "${OUT}/proof.json.gz"
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc500/delta/exact_mscp_conditional_discover.py",
+        "prove-model",
+        "--graph",
+        "${SNAPSHOT}/input/graphs/DSJC500.9.col",
+        "--model",
+        "${artifact:dsjc500.model.P8_H36:model}",
+        "--out",
+        "${OUT}/proof.json.gz",
+        "--witness-out",
+        "${OUT}/unexpected-witness.json",
+        "--node-limit",
+        "0",
+        "--time-limit",
+        "0",
+        "--stable-node-limit",
+        "0",
+        "--matching-vertex-limit",
+        "120",
+        "--workers",
+        "1",
+        "--denominator",
+        "1000000000",
+        "--maximum-json-bytes",
+        "0",
+        "--maximum-proof-bytes",
+        "0",
+        "--maximum-proof-records",
+        "0"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.model.P1_B_29791",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.reconstruct"
+      ],
+      "id": "dsjc500.model.P1_B_29791",
+      "outputs": {
+        "columns": {
+          "glob": "${OUT}/*.columns.tsv",
+          "required_count": 1
+        },
+        "model": {
+          "glob": "${OUT}/*.model.json",
+          "required_count": 1
+        }
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc500/delta/make_conditional_model.py",
+        "--graph",
+        "${SNAPSHOT}/input/graphs/DSJC500.9.col",
+        "--maximum-class-size",
+        "5",
+        "--packing-number",
+        "1",
+        "--scores",
+        "4:251001,3:501,2:1",
+        "--caps",
+        "4:101,3:5",
+        "--strict-target",
+        "25353607",
+        "--radix",
+        "501",
+        "--stable-node-limit",
+        "0",
+        "--top-packing-limit",
+        "0",
+        "--out-dir",
+        "${OUT}"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.weighted.P1_B_29791",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.model.P1_B_29791"
+      ],
+      "id": "dsjc500.weighted.P1_B_29791",
+      "outputs": {
+        "proof": "${OUT}/proof.json.gz"
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc500/delta/exact_mscp_conditional_discover.py",
+        "prove-model",
+        "--graph",
+        "${SNAPSHOT}/input/graphs/DSJC500.9.col",
+        "--model",
+        "${artifact:dsjc500.model.P1_B_29791:model}",
+        "--out",
+        "${OUT}/proof.json.gz",
+        "--witness-out",
+        "${OUT}/unexpected-witness.json",
+        "--node-limit",
+        "0",
+        "--time-limit",
+        "0",
+        "--stable-node-limit",
+        "0",
+        "--matching-vertex-limit",
+        "120",
+        "--workers",
+        "1",
+        "--denominator",
+        "1000000000",
+        "--maximum-json-bytes",
+        "0",
+        "--maximum-proof-bytes",
+        "0",
+        "--maximum-proof-records",
+        "0"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.model.P3_B_29791",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.reconstruct"
+      ],
+      "id": "dsjc500.model.P3_B_29791",
+      "outputs": {
+        "columns": {
+          "glob": "${OUT}/*.columns.tsv",
+          "required_count": 1
+        },
+        "model": {
+          "glob": "${OUT}/*.model.json",
+          "required_count": 1
+        }
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc500/delta/make_conditional_model.py",
+        "--graph",
+        "${SNAPSHOT}/input/graphs/DSJC500.9.col",
+        "--maximum-class-size",
+        "5",
+        "--packing-number",
+        "3",
+        "--scores",
+        "4:251001,3:501,2:1",
+        "--caps",
+        "4:101,3:5",
+        "--strict-target",
+        "25353607",
+        "--radix",
+        "501",
+        "--stable-node-limit",
+        "0",
+        "--top-packing-limit",
+        "0",
+        "--out-dir",
+        "${OUT}"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.weighted.P3_B_29791",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.model.P3_B_29791"
+      ],
+      "id": "dsjc500.weighted.P3_B_29791",
+      "outputs": {
+        "proof": "${OUT}/proof.json.gz"
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc500/delta/exact_mscp_conditional_discover.py",
+        "prove-model",
+        "--graph",
+        "${SNAPSHOT}/input/graphs/DSJC500.9.col",
+        "--model",
+        "${artifact:dsjc500.model.P3_B_29791:model}",
+        "--out",
+        "${OUT}/proof.json.gz",
+        "--witness-out",
+        "${OUT}/unexpected-witness.json",
+        "--node-limit",
+        "0",
+        "--time-limit",
+        "0",
+        "--stable-node-limit",
+        "0",
+        "--matching-vertex-limit",
+        "120",
+        "--workers",
+        "1",
+        "--denominator",
+        "1000000000",
+        "--maximum-json-bytes",
+        "0",
+        "--maximum-proof-bytes",
+        "0",
+        "--maximum-proof-records",
+        "0"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.model.P6_B_29791",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.reconstruct"
+      ],
+      "id": "dsjc500.model.P6_B_29791",
+      "outputs": {
+        "columns": {
+          "glob": "${OUT}/*.columns.tsv",
+          "required_count": 1
+        },
+        "model": {
+          "glob": "${OUT}/*.model.json",
+          "required_count": 1
+        }
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc500/delta/make_conditional_model.py",
+        "--graph",
+        "${SNAPSHOT}/input/graphs/DSJC500.9.col",
+        "--maximum-class-size",
+        "5",
+        "--packing-number",
+        "6",
+        "--scores",
+        "4:251001,3:501,2:1",
+        "--caps",
+        "4:101,3:5",
+        "--strict-target",
+        "25353607",
+        "--radix",
+        "501",
+        "--stable-node-limit",
+        "0",
+        "--top-packing-limit",
+        "0",
+        "--out-dir",
+        "${OUT}"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.weighted.P6_B_29791",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.model.P6_B_29791"
+      ],
+      "id": "dsjc500.weighted.P6_B_29791",
+      "outputs": {
+        "proof": "${OUT}/proof.json.gz"
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc500/delta/exact_mscp_conditional_discover.py",
+        "prove-model",
+        "--graph",
+        "${SNAPSHOT}/input/graphs/DSJC500.9.col",
+        "--model",
+        "${artifact:dsjc500.model.P6_B_29791:model}",
+        "--out",
+        "${OUT}/proof.json.gz",
+        "--witness-out",
+        "${OUT}/unexpected-witness.json",
+        "--node-limit",
+        "0",
+        "--time-limit",
+        "0",
+        "--stable-node-limit",
+        "0",
+        "--matching-vertex-limit",
+        "120",
+        "--workers",
+        "1",
+        "--denominator",
+        "1000000000",
+        "--maximum-json-bytes",
+        "0",
+        "--maximum-proof-bytes",
+        "0",
+        "--maximum-proof-records",
+        "0"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.model.P8_B_29791",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.reconstruct"
+      ],
+      "id": "dsjc500.model.P8_B_29791",
+      "outputs": {
+        "columns": {
+          "glob": "${OUT}/*.columns.tsv",
+          "required_count": 1
+        },
+        "model": {
+          "glob": "${OUT}/*.model.json",
+          "required_count": 1
+        }
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc500/delta/make_conditional_model.py",
+        "--graph",
+        "${SNAPSHOT}/input/graphs/DSJC500.9.col",
+        "--maximum-class-size",
+        "5",
+        "--packing-number",
+        "8",
+        "--scores",
+        "4:251001,3:501,2:1",
+        "--caps",
+        "4:101,3:5",
+        "--strict-target",
+        "25353607",
+        "--radix",
+        "501",
+        "--stable-node-limit",
+        "0",
+        "--top-packing-limit",
+        "0",
+        "--out-dir",
+        "${OUT}"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.weighted.P8_B_29791",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.model.P8_B_29791"
+      ],
+      "id": "dsjc500.weighted.P8_B_29791",
+      "outputs": {
+        "proof": "${OUT}/proof.json.gz"
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc500/delta/exact_mscp_conditional_discover.py",
+        "prove-model",
+        "--graph",
+        "${SNAPSHOT}/input/graphs/DSJC500.9.col",
+        "--model",
+        "${artifact:dsjc500.model.P8_B_29791:model}",
+        "--out",
+        "${OUT}/proof.json.gz",
+        "--witness-out",
+        "${OUT}/unexpected-witness.json",
+        "--node-limit",
+        "0",
+        "--time-limit",
+        "0",
+        "--stable-node-limit",
+        "0",
+        "--matching-vertex-limit",
+        "120",
+        "--workers",
+        "1",
+        "--denominator",
+        "1000000000",
+        "--maximum-json-bytes",
+        "0",
+        "--maximum-proof-bytes",
+        "0",
+        "--maximum-proof-records",
+        "0"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.model.P5_C_29788",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.reconstruct"
+      ],
+      "id": "dsjc500.model.P5_C_29788",
+      "outputs": {
+        "columns": {
+          "glob": "${OUT}/*.columns.tsv",
+          "required_count": 1
+        },
+        "model": {
+          "glob": "${OUT}/*.model.json",
+          "required_count": 1
+        }
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc500/delta/make_conditional_model.py",
+        "--graph",
+        "${SNAPSHOT}/input/graphs/DSJC500.9.col",
+        "--maximum-class-size",
+        "5",
+        "--packing-number",
+        "5",
+        "--scores",
+        "4:251001,3:501,2:1",
+        "--caps",
+        "4:101,3:5",
+        "--strict-target",
+        "25353608",
+        "--radix",
+        "501",
+        "--stable-node-limit",
+        "0",
+        "--top-packing-limit",
+        "0",
+        "--out-dir",
+        "${OUT}"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.weighted.P5_C_29788",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.model.P5_C_29788"
+      ],
+      "id": "dsjc500.weighted.P5_C_29788",
+      "outputs": {
+        "proof": "${OUT}/proof.json.gz"
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc500/delta/exact_mscp_conditional_discover.py",
+        "prove-model",
+        "--graph",
+        "${SNAPSHOT}/input/graphs/DSJC500.9.col",
+        "--model",
+        "${artifact:dsjc500.model.P5_C_29788:model}",
+        "--out",
+        "${OUT}/proof.json.gz",
+        "--witness-out",
+        "${OUT}/unexpected-witness.json",
+        "--node-limit",
+        "0",
+        "--time-limit",
+        "0",
+        "--stable-node-limit",
+        "0",
+        "--matching-vertex-limit",
+        "120",
+        "--workers",
+        "1",
+        "--denominator",
+        "1000000000",
+        "--maximum-json-bytes",
+        "0",
+        "--maximum-proof-bytes",
+        "0",
+        "--maximum-proof-records",
+        "0"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.model.P7_C_29788",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.reconstruct"
+      ],
+      "id": "dsjc500.model.P7_C_29788",
+      "outputs": {
+        "columns": {
+          "glob": "${OUT}/*.columns.tsv",
+          "required_count": 1
+        },
+        "model": {
+          "glob": "${OUT}/*.model.json",
+          "required_count": 1
+        }
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc500/delta/make_conditional_model.py",
+        "--graph",
+        "${SNAPSHOT}/input/graphs/DSJC500.9.col",
+        "--maximum-class-size",
+        "5",
+        "--packing-number",
+        "7",
+        "--scores",
+        "4:251001,3:501,2:1",
+        "--caps",
+        "4:101,3:5",
+        "--strict-target",
+        "25353608",
+        "--radix",
+        "501",
+        "--stable-node-limit",
+        "0",
+        "--top-packing-limit",
+        "0",
+        "--out-dir",
+        "${OUT}"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.weighted.P7_C_29788",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "generation",
+      "depends_on": [
+        "dsjc500.model.P7_C_29788"
+      ],
+      "id": "dsjc500.weighted.P7_C_29788",
+      "outputs": {
+        "proof": "${OUT}/proof.json.gz"
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc500/delta/exact_mscp_conditional_discover.py",
+        "prove-model",
+        "--graph",
+        "${SNAPSHOT}/input/graphs/DSJC500.9.col",
+        "--model",
+        "${artifact:dsjc500.model.P7_C_29788:model}",
+        "--out",
+        "${OUT}/proof.json.gz",
+        "--witness-out",
+        "${OUT}/unexpected-witness.json",
+        "--node-limit",
+        "0",
+        "--time-limit",
+        "0",
+        "--stable-node-limit",
+        "0",
+        "--matching-vertex-limit",
+        "120",
+        "--workers",
+        "1",
+        "--denominator",
+        "1000000000",
+        "--maximum-json-bytes",
+        "0",
+        "--maximum-proof-bytes",
+        "0",
+        "--maximum-proof-records",
+        "0"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc500.verify",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc500",
+      "category": "verification",
+      "depends_on": [
+        "dsjc500.reconstruct",
+        "dsjc500.seed.P1",
+        "dsjc500.residual.P1",
+        "dsjc500.seed.P2",
+        "dsjc500.residual.P2",
+        "dsjc500.seed.P3",
+        "dsjc500.residual.P3",
+        "dsjc500.seed.P4",
+        "dsjc500.residual.P4",
+        "dsjc500.seed.P5",
+        "dsjc500.residual.P5",
+        "dsjc500.seed.P6",
+        "dsjc500.residual.P6",
+        "dsjc500.seed.P7",
+        "dsjc500.residual.P7",
+        "dsjc500.seed.P8",
+        "dsjc500.residual.P8",
+        "dsjc500.farkas.P1",
+        "dsjc500.farkas.P2",
+        "dsjc500.farkas.P3",
+        "dsjc500.farkas.P4",
+        "dsjc500.farkas.P5",
+        "dsjc500.farkas.P6",
+        "dsjc500.farkas.P7",
+        "dsjc500.farkas.P8",
+        "dsjc500.profile_farkas.P1_1_1_6_101",
+        "dsjc500.profile_farkas.P3_1_1_6_101",
+        "dsjc500.profile_farkas.P3_0_3_5_101",
+        "dsjc500.model.P1_H36",
+        "dsjc500.weighted.P1_H36",
+        "dsjc500.model.P3_H36",
+        "dsjc500.weighted.P3_H36",
+        "dsjc500.model.P5_H36",
+        "dsjc500.weighted.P5_H36",
+        "dsjc500.model.P6_H36",
+        "dsjc500.weighted.P6_H36",
+        "dsjc500.model.P7_H36",
+        "dsjc500.weighted.P7_H36",
+        "dsjc500.model.P8_H36",
+        "dsjc500.weighted.P8_H36",
+        "dsjc500.model.P1_B_29791",
+        "dsjc500.weighted.P1_B_29791",
+        "dsjc500.model.P3_B_29791",
+        "dsjc500.weighted.P3_B_29791",
+        "dsjc500.model.P6_B_29791",
+        "dsjc500.weighted.P6_B_29791",
+        "dsjc500.model.P8_B_29791",
+        "dsjc500.weighted.P8_B_29791",
+        "dsjc500.model.P5_C_29788",
+        "dsjc500.weighted.P5_C_29788",
+        "dsjc500.model.P7_C_29788",
+        "dsjc500.weighted.P7_C_29788"
+      ],
+      "id": "dsjc500.verify",
+      "outputs": {
+        "coverage": "${OUT}/coverage.json",
+        "receipt": "${OUT}/verification.json"
+      },
+      "terminal_dependencies": true
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc1000.cap_lp",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc1000",
+      "category": "generation",
+      "depends_on": [
+        "dsjc1000.reconstruct"
+      ],
+      "id": "dsjc1000.cap_lp",
+      "outputs": {
+        "numerical": "${OUT}/size5_packing_lp_111.npz",
+        "summary": "${OUT}/size5_packing_lp_111.json"
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc1000/solve_size5_packing_lp.py",
+        "--sets",
+        "${artifact:dsjc1000.reconstruct:sets}",
+        "--scenario",
+        "111",
+        "--out",
+        "${OUT}/size5_packing_lp_111.json"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc1000.cap_exact",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc1000",
+      "category": "generation",
+      "depends_on": [
+        "dsjc1000.cap_lp",
+        "dsjc1000.reconstruct"
+      ],
+      "id": "dsjc1000.cap_exact",
+      "outputs": {
+        "certificate": "${OUT}/certificate.json"
+      }
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc1000.cap_verify",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc1000",
+      "category": "independent_verification",
+      "depends_on": [
+        "dsjc1000.cap_exact"
+      ],
+      "id": "dsjc1000.cap_verify",
+      "outputs": {
+        "receipt": "${OUT}/verification.json"
+      }
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc1000.lp.000",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc1000",
+      "category": "generation",
+      "depends_on": [
+        "dsjc1000.reconstruct"
+      ],
+      "id": "dsjc1000.lp.000",
+      "outputs": {
+        "numerical": "${OUT}/000/numerical_solution.npz",
+        "summary": "${OUT}/000/summary.json"
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc1000/solve_conditional_lp.py",
+        "--sets",
+        "${artifact:dsjc1000.reconstruct:sets}",
+        "--scenario",
+        "000",
+        "--out-root",
+        "${OUT}",
+        "--time-limit",
+        "0"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc1000.exact.000",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc1000",
+      "category": "generation",
+      "depends_on": [
+        "dsjc1000.lp.000",
+        "dsjc1000.reconstruct"
+      ],
+      "id": "dsjc1000.exact.000",
+      "outputs": {
+        "certificate": "${OUT}/certificate.json"
+      }
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc1000.lp.001",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc1000",
+      "category": "generation",
+      "depends_on": [
+        "dsjc1000.reconstruct"
+      ],
+      "id": "dsjc1000.lp.001",
+      "outputs": {
+        "numerical": "${OUT}/001/numerical_solution.npz",
+        "summary": "${OUT}/001/summary.json"
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc1000/solve_conditional_lp.py",
+        "--sets",
+        "${artifact:dsjc1000.reconstruct:sets}",
+        "--scenario",
+        "001",
+        "--out-root",
+        "${OUT}",
+        "--time-limit",
+        "0"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc1000.exact.001",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc1000",
+      "category": "generation",
+      "depends_on": [
+        "dsjc1000.lp.001",
+        "dsjc1000.reconstruct"
+      ],
+      "id": "dsjc1000.exact.001",
+      "outputs": {
+        "certificate": "${OUT}/certificate.json"
+      }
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc1000.lp.010",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc1000",
+      "category": "generation",
+      "depends_on": [
+        "dsjc1000.reconstruct"
+      ],
+      "id": "dsjc1000.lp.010",
+      "outputs": {
+        "numerical": "${OUT}/010/numerical_solution.npz",
+        "summary": "${OUT}/010/summary.json"
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc1000/solve_conditional_lp.py",
+        "--sets",
+        "${artifact:dsjc1000.reconstruct:sets}",
+        "--scenario",
+        "010",
+        "--out-root",
+        "${OUT}",
+        "--time-limit",
+        "0"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc1000.exact.010",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc1000",
+      "category": "generation",
+      "depends_on": [
+        "dsjc1000.lp.010",
+        "dsjc1000.reconstruct"
+      ],
+      "id": "dsjc1000.exact.010",
+      "outputs": {
+        "certificate": "${OUT}/certificate.json"
+      }
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc1000.lp.011",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc1000",
+      "category": "generation",
+      "depends_on": [
+        "dsjc1000.reconstruct"
+      ],
+      "id": "dsjc1000.lp.011",
+      "outputs": {
+        "numerical": "${OUT}/011/numerical_solution.npz",
+        "summary": "${OUT}/011/summary.json"
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc1000/solve_conditional_lp.py",
+        "--sets",
+        "${artifact:dsjc1000.reconstruct:sets}",
+        "--scenario",
+        "011",
+        "--out-root",
+        "${OUT}",
+        "--time-limit",
+        "0"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc1000.exact.011",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc1000",
+      "category": "generation",
+      "depends_on": [
+        "dsjc1000.lp.011",
+        "dsjc1000.reconstruct"
+      ],
+      "id": "dsjc1000.exact.011",
+      "outputs": {
+        "certificate": "${OUT}/certificate.json"
+      }
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc1000.lp.100",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc1000",
+      "category": "generation",
+      "depends_on": [
+        "dsjc1000.reconstruct"
+      ],
+      "id": "dsjc1000.lp.100",
+      "outputs": {
+        "numerical": "${OUT}/100/numerical_solution.npz",
+        "summary": "${OUT}/100/summary.json"
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc1000/solve_conditional_lp.py",
+        "--sets",
+        "${artifact:dsjc1000.reconstruct:sets}",
+        "--scenario",
+        "100",
+        "--out-root",
+        "${OUT}",
+        "--time-limit",
+        "0"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc1000.exact.100",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc1000",
+      "category": "generation",
+      "depends_on": [
+        "dsjc1000.lp.100",
+        "dsjc1000.reconstruct"
+      ],
+      "id": "dsjc1000.exact.100",
+      "outputs": {
+        "certificate": "${OUT}/certificate.json"
+      }
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc1000.lp.101",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc1000",
+      "category": "generation",
+      "depends_on": [
+        "dsjc1000.reconstruct"
+      ],
+      "id": "dsjc1000.lp.101",
+      "outputs": {
+        "numerical": "${OUT}/101/numerical_solution.npz",
+        "summary": "${OUT}/101/summary.json"
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc1000/solve_conditional_lp.py",
+        "--sets",
+        "${artifact:dsjc1000.reconstruct:sets}",
+        "--scenario",
+        "101",
+        "--out-root",
+        "${OUT}",
+        "--time-limit",
+        "0"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc1000.exact.101",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc1000",
+      "category": "generation",
+      "depends_on": [
+        "dsjc1000.lp.101",
+        "dsjc1000.reconstruct"
+      ],
+      "id": "dsjc1000.exact.101",
+      "outputs": {
+        "certificate": "${OUT}/certificate.json"
+      }
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc1000.lp.110",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc1000",
+      "category": "generation",
+      "depends_on": [
+        "dsjc1000.reconstruct"
+      ],
+      "id": "dsjc1000.lp.110",
+      "outputs": {
+        "numerical": "${OUT}/110/numerical_solution.npz",
+        "summary": "${OUT}/110/summary.json"
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc1000/solve_conditional_lp.py",
+        "--sets",
+        "${artifact:dsjc1000.reconstruct:sets}",
+        "--scenario",
+        "110",
+        "--out-root",
+        "${OUT}",
+        "--time-limit",
+        "0"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc1000.exact.110",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc1000",
+      "category": "generation",
+      "depends_on": [
+        "dsjc1000.lp.110",
+        "dsjc1000.reconstruct"
+      ],
+      "id": "dsjc1000.exact.110",
+      "outputs": {
+        "certificate": "${OUT}/certificate.json"
+      }
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc1000.lp.111",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc1000",
+      "category": "generation",
+      "depends_on": [
+        "dsjc1000.cap_verify",
+        "dsjc1000.reconstruct",
+        "dsjc1000.cap_exact"
+      ],
+      "id": "dsjc1000.lp.111",
+      "outputs": {
+        "numerical": "${OUT}/conditional_111.npz",
+        "summary": "${OUT}/conditional_111.json"
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/dsjc1000/solve_conditional_lp_q5cap.py",
+        "--sets",
+        "${artifact:dsjc1000.reconstruct:sets}",
+        "--scenario",
+        "111",
+        "--q5-cap",
+        "134",
+        "--out",
+        "${OUT}/conditional_111",
+        "--time-limit",
+        "0"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc1000.exact.111",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc1000",
+      "category": "generation",
+      "depends_on": [
+        "dsjc1000.lp.111",
+        "dsjc1000.cap_verify",
+        "dsjc1000.reconstruct",
+        "dsjc1000.cap_exact"
+      ],
+      "id": "dsjc1000.exact.111",
+      "outputs": {
+        "certificate": "${OUT}/certificate.json"
+      }
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "dsjc1000.verify",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "dsjc1000",
+      "category": "verification",
+      "depends_on": [
+        "dsjc1000.reconstruct",
+        "dsjc1000.cap_lp",
+        "dsjc1000.cap_exact",
+        "dsjc1000.cap_verify",
+        "dsjc1000.lp.000",
+        "dsjc1000.exact.000",
+        "dsjc1000.lp.001",
+        "dsjc1000.exact.001",
+        "dsjc1000.lp.010",
+        "dsjc1000.exact.010",
+        "dsjc1000.lp.011",
+        "dsjc1000.exact.011",
+        "dsjc1000.lp.100",
+        "dsjc1000.exact.100",
+        "dsjc1000.lp.101",
+        "dsjc1000.exact.101",
+        "dsjc1000.lp.110",
+        "dsjc1000.exact.110",
+        "dsjc1000.lp.111",
+        "dsjc1000.exact.111"
+      ],
+      "id": "dsjc1000.verify",
+      "outputs": {
+        "coverage": "${OUT}/coverage.json",
+        "receipt": "${OUT}/verification.json"
+      },
+      "terminal_dependencies": true
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "c2000.census",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "c2000",
+      "category": "generation",
+      "depends_on": [],
+      "id": "c2000.census",
+      "outputs": {
+        "census": "${OUT}/census.json",
+        "sets": "${OUT}",
+        "six_sets": "${OUT}/stable_sets_size_6.tsv.gz"
+      },
+      "retained_argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/existing/c2000/enumerate_stable_sets_bitset.py",
+        "--graph",
+        "${SNAPSHOT}/input/graphs/C2000.9.col",
+        "--out",
+        "${OUT}",
+        "--max-size",
+        "7"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "c2000.packing",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "c2000",
+      "category": "generation",
+      "depends_on": [
+        "c2000.census"
+      ],
+      "id": "c2000.packing",
+      "outputs": {
+        "conflict_graph": "${OUT}/conflict_graph.json",
+        "numerical": "${OUT}/numerical.npz",
+        "packing": "${OUT}/packing.json"
+      }
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "c2000.cliques",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "c2000",
+      "category": "generation",
+      "depends_on": [
+        "c2000.census"
+      ],
+      "id": "c2000.cliques",
+      "outputs": {
+        "cliques": "${OUT}/cliques.json",
+        "enumeration_status": "${OUT}/status.json"
+      }
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "c2000.cover",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "c2000",
+      "category": "generation",
+      "depends_on": [
+        "c2000.cliques",
+        "c2000.census"
+      ],
+      "id": "c2000.cover",
+      "outputs": {
+        "cover": "${OUT}/cover.json",
+        "numerical": "${OUT}/numerical.npz"
+      }
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "c2000.assemble",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "c2000",
+      "category": "generation",
+      "depends_on": [
+        "c2000.packing",
+        "c2000.cover",
+        "c2000.census"
+      ],
+      "id": "c2000.assemble",
+      "outputs": {
+        "certificate": "${OUT}/certificate.json"
+      }
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "c2000.independent_census",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "c2000",
+      "category": "verification",
+      "depends_on": [
+        "c2000.census",
+        "setup.build"
+      ],
+      "id": "c2000.independent_census",
+      "outputs": {
+        "census_stdout": "${STDOUT}",
+        "six_sets": "${OUT}/sets6.tsv"
+      },
+      "retained_argv": [
+        "${artifact:setup.build:binary}",
+        "${SNAPSHOT}/input/graphs/C2000.9.col",
+        "7",
+        "${OUT}/sets6.tsv"
+      ]
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "c2000.bind_census",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "c2000",
+      "category": "verification",
+      "depends_on": [
+        "c2000.independent_census",
+        "c2000.census"
+      ],
+      "id": "c2000.bind_census",
+      "outputs": {
+        "receipt": "${OUT}/verification.json"
+      }
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${SNAPSHOT}/new/worker.py",
+        "--run",
+        "${RUN_ROOT}",
+        "--stage",
+        "c2000.verify",
+        "--inputs",
+        "${INPUTS}",
+        "--out",
+        "${OUT}"
+      ],
+      "case": "c2000",
+      "category": "verification",
+      "depends_on": [
+        "c2000.census",
+        "c2000.assemble",
+        "c2000.bind_census"
+      ],
+      "id": "c2000.verify",
+      "outputs": {
+        "receipt": "${OUT}/verification.json"
+      }
+    }
+  ],
+  "targets": {
+    "c2000": 381823,
+    "dsjc1000": 102344,
+    "dsjc250": 8277,
+    "dsjc500": 29791
+  }
+}

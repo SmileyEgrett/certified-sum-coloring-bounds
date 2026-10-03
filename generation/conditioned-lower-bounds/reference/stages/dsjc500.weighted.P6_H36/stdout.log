@@ -1,0 +1,17 @@
+{"retained_argv": ["/usr/bin/python3", "<source>/existing/dsjc500/delta/exact_mscp_conditional_discover.py", "prove-model", "--graph", "<source>/input/graphs/DSJC500.9.col", "--model", "<run>/jobs/dsjc500.model.P6_H36/attempt-001/out/conditional_9ff92577b0eb7839bc29.model.json", "--out", "<run>/jobs/dsjc500.weighted.P6_H36/attempt-001/out/proof.json.gz", "--witness-out", "<run>/jobs/dsjc500.weighted.P6_H36/attempt-001/out/unexpected-witness.json", "--node-limit", "0", "--time-limit", "0", "--stable-node-limit", "0", "--matching-vertex-limit", "120", "--workers", "1", "--denominator", "1000000000", "--maximum-json-bytes", "0", "--maximum-proof-bytes", "0", "--maximum-proof-records", "0"]}
+{"numerical_runtime": {"python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]", "numpy": "1.26.4", "scipy": "1.15.3", "HiGHS_version": "1.8.0", "actual_HiGHS_threads": 1, "post_solve_tid_affinities": {"733539": [6]}, "worker_tid_limit": 1, "actual_native_limits": {"threads": 1, "time_limit": "infinity", "mip_max_nodes": 2147483647, "simplex_iteration_limit": 2147483647, "ipm_iteration_limit": 2147483647}}}
+{
+  "branches": 3,
+  "elapsed_seconds": 6.481719,
+  "leaves": 4,
+  "lp_seconds": 5.014285,
+  "matching_leaves": 0,
+  "model_id": "conditional_9ff92577b0eb7839bc29",
+  "proof_file": "<run>/jobs/dsjc500.weighted.P6_H36/attempt-001/out/proof.json.gz",
+  "proof_records": 7,
+  "proof_sha256": "64596589fbbe450779c6a4a872e7e82b9475bafed62a887bec23d0479dcff5e4",
+  "schema": "exact_mscp_conditional_discovery_v1",
+  "search_nodes": 7,
+  "stable_enumeration_nodes": 35166,
+  "status": "PROVED"
+}

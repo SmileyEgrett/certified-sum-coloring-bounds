@@ -1,0 +1,18 @@
+{"retained_argv": ["/usr/bin/python3", "<source>/existing/dsjc250/generate_lpbb.py", "pair_H2F", "<run>/jobs/dsjc250.tree.pair_H2F/attempt-001/out/pair_H2F.proof.json.gz", "0", "0"]}
+GRAPH_SHA256 1b90f811e4d44f8937075865790b845e986b08b9da53caea57b2adf1c57383e7
+{"numerical_runtime": {"python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]", "numpy": "1.26.4", "scipy": "1.15.3", "HiGHS_version": "1.8.0", "actual_HiGHS_threads": 1, "post_solve_tid_affinities": {"729903": [6]}, "worker_tid_limit": 1, "actual_native_limits": {"threads": 1, "time_limit": "infinity", "mip_max_nodes": 2147483647, "simplex_iteration_limit": 2147483647, "ipm_iteration_limit": 2147483647}}}
+{"progress_nodes": 250, "leaves": 122, "branches": 127, "depth": 11, "elapsed": 41.904217004776, "lp_time": 40.25794982910156}
+{"progress_nodes": 500, "leaves": 248, "branches": 251, "depth": 5, "elapsed": 80.99029064178467, "lp_time": 77.72248387336731}
+{"progress_nodes": 750, "leaves": 372, "branches": 377, "depth": 12, "elapsed": 118.14729809761047, "lp_time": 113.3005096912384}
+{
+  "status": "PROVED",
+  "root": 992,
+  "nodes": 993,
+  "leaves": 497,
+  "branches": 496,
+  "elapsed": 148.3166787624359,
+  "lp_time": 142.10526537895203,
+  "proof_records": 993,
+  "out": "<run>/jobs/dsjc250.tree.pair_H2F/attempt-001/out/pair_H2F.proof.json.gz",
+  "error": null
+}

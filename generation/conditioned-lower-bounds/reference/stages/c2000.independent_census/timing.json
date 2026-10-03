@@ -1,0 +1,22 @@
+{
+  "attempt": "attempt-001",
+  "case": "c2000",
+  "category": "verification",
+  "child_time": {
+    "max_rss_kib": 19848.0,
+    "system_seconds": 0.05,
+    "user_seconds": 1.33
+  },
+  "finished": "2026-10-01T01:38:00.371471+00:00",
+  "inclusive_wall_seconds": 5.753501682076603,
+  "phase_wall_seconds": {
+    "admission_and_inputs": 2.893349824938923,
+    "mathematical_process": 1.5804376490414143,
+    "postprocess": 1.2800848539918661
+  },
+  "stage": "c2000.independent_census",
+  "started": "2026-10-01T01:37:54.617995+00:00",
+  "status": "success",
+  "supervisor_system_seconds": 0.20886899999999997,
+  "supervisor_user_seconds": 2.2138269999999807
+}

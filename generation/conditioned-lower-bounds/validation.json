@@ -1,0 +1,66 @@
+{
+  "conditional_dual_reconstructions_checked": 8,
+  "generation_cases": [
+    "c2000 (complete)",
+    "dsjc250.tree.quad_x2",
+    "dsjc500.residual.P2",
+    "dsjc500.farkas.P1",
+    "dsjc500.weighted.P5_C_29788",
+    "dsjc1000.cap_verify"
+  ],
+  "new_objects_independently_checked": true,
+  "portable_entrypoint_checks": {
+    "1000-packing": {
+      "exit_code": 0,
+      "wall_seconds": 11.75931453704834
+    },
+    "250-branch": {
+      "exit_code": 0,
+      "wall_seconds": 4.227165460586548
+    },
+    "500-farkas": {
+      "exit_code": 0,
+      "wall_seconds": 10.046599864959717
+    },
+    "500-residual": {
+      "exit_code": 0,
+      "wall_seconds": 95.31462669372559
+    },
+    "500-weighted": {
+      "exit_code": 0,
+      "wall_seconds": 814.442284822464
+    },
+    "boundary": {
+      "exit_code": 0,
+      "wall_seconds": 0.303560733795166
+    },
+    "c2000": {
+      "exit_code": 0,
+      "wall_seconds": 41.28500509262085
+    },
+    "list": {
+      "exit_code": 0,
+      "wall_seconds": 0.23906540870666504
+    },
+    "reference": {
+      "exit_code": 0,
+      "wall_seconds": 69.1718180179596
+    },
+    "resume": {
+      "exit_code": 0,
+      "wall_seconds": 0.4665539264678955
+    }
+  },
+  "reference_lower_bounds": {
+    "c2000": 381823,
+    "dsjc1000": 102344,
+    "dsjc250": 8277,
+    "dsjc500": 29791
+  },
+  "resource_policy": {
+    "cpus": 1,
+    "memory_limit_bytes": 4294967296,
+    "swap_limit_bytes": 0
+  },
+  "testing_scope": "All four reference proofs; selected portable generation paths; not a second complete four-instance LP rerun."
+}

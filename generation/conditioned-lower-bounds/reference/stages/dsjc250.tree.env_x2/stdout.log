@@ -1,0 +1,21 @@
+{"retained_argv": ["/usr/bin/python3", "<source>/existing/dsjc250/generate_lpbb.py", "env_x2", "<run>/jobs/dsjc250.tree.env_x2/attempt-001/out/env_x2.proof.json.gz", "0", "0"]}
+GRAPH_SHA256 1b90f811e4d44f8937075865790b845e986b08b9da53caea57b2adf1c57383e7
+{"numerical_runtime": {"python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]", "numpy": "1.26.4", "scipy": "1.15.3", "HiGHS_version": "1.8.0", "actual_HiGHS_threads": 1, "post_solve_tid_affinities": {"729470": [6]}, "worker_tid_limit": 1, "actual_native_limits": {"threads": 1, "time_limit": "infinity", "mip_max_nodes": 2147483647, "simplex_iteration_limit": 2147483647, "ipm_iteration_limit": 2147483647}}}
+{"progress_nodes": 250, "leaves": 120, "branches": 129, "depth": 14, "elapsed": 17.370211839675903, "lp_time": 16.460384368896484}
+{"progress_nodes": 500, "leaves": 247, "branches": 252, "depth": 10, "elapsed": 33.24319052696228, "lp_time": 31.447380304336548}
+{"progress_nodes": 750, "leaves": 370, "branches": 379, "depth": 12, "elapsed": 50.750871419906616, "lp_time": 48.06536602973938}
+{"progress_nodes": 1000, "leaves": 498, "branches": 501, "depth": 8, "elapsed": 67.05446243286133, "lp_time": 63.52684783935547}
+{"progress_nodes": 1250, "leaves": 622, "branches": 627, "depth": 9, "elapsed": 83.05870866775513, "lp_time": 78.69179129600525}
+{"progress_nodes": 1500, "leaves": 748, "branches": 751, "depth": 10, "elapsed": 99.35182476043701, "lp_time": 94.16000699996948}
+{
+  "status": "PROVED",
+  "root": 1660,
+  "nodes": 1661,
+  "leaves": 831,
+  "branches": 830,
+  "elapsed": 109.52021384239197,
+  "lp_time": 103.79059410095215,
+  "proof_records": 1661,
+  "out": "<run>/jobs/dsjc250.tree.env_x2/attempt-001/out/env_x2.proof.json.gz",
+  "error": null
+}

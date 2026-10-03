@@ -1,0 +1,22 @@
+{
+  "attempt": "attempt-001",
+  "case": "dsjc500",
+  "category": "generation",
+  "child_time": {
+    "max_rss_kib": 75588.0,
+    "system_seconds": 0.06,
+    "user_seconds": 1.33
+  },
+  "finished": "2026-09-30T22:48:39.809434+00:00",
+  "inclusive_wall_seconds": 5.369787935167551,
+  "phase_wall_seconds": {
+    "admission_and_inputs": 2.484339159913361,
+    "mathematical_process": 1.5791911981068552,
+    "postprocess": 1.3067716392688453
+  },
+  "stage": "dsjc500.model.P1_H36",
+  "started": "2026-09-30T22:48:34.439675+00:00",
+  "status": "success",
+  "supervisor_system_seconds": 0.19324100000000044,
+  "supervisor_user_seconds": 2.1461180000000013
+}

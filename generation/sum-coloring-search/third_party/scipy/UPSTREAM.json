@@ -1,0 +1,22 @@
+{
+  "project": "SciPy",
+  "version": "1.16.2",
+  "commit": "b1296b9b4393e251511fe8fdd3e58c22a1124899",
+  "files": [
+    {
+      "file": "rectangular_lsap.cpp",
+      "url": "https://raw.githubusercontent.com/scipy/scipy/b1296b9b4393e251511fe8fdd3e58c22a1124899/scipy/optimize/rectangular_lsap/rectangular_lsap.cpp",
+      "sha256": "73d78155990732311a116bc04f7f64d874c0f3793172e9aab12a476cb3d15c2c"
+    },
+    {
+      "file": "rectangular_lsap.h",
+      "url": "https://raw.githubusercontent.com/scipy/scipy/b1296b9b4393e251511fe8fdd3e58c22a1124899/scipy/optimize/rectangular_lsap/rectangular_lsap.h",
+      "sha256": "12127316115bb13a2927e84f532d09428a86a5cbf8f41e9773f0c3e0e1293197"
+    },
+    {
+      "file": "LICENSE.txt",
+      "url": "https://raw.githubusercontent.com/scipy/scipy/b1296b9b4393e251511fe8fdd3e58c22a1124899/LICENSE.txt",
+      "sha256": "221e59f5e910fd7f94e44f0dac77436a11338c285c6346232e4a850a50da0e94"
+    }
+  ]
+}

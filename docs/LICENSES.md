@@ -25,3 +25,10 @@ shell tools and OpenSSL headers/libcrypto; those dependencies are not bundled.
 The optional direct-master rerun fetches pinned HiGHS 1.11.0 source with its
 complete upstream MIT and bundled third-party notices. No HiGHS binary or
 vendor source tree is distributed in this companion.
+
+
+The upper-witness search includes SciPy's rectangular assignment implementation.
+Its source, upstream identification and BSD license notice are retained under
+`generation/sum-coloring-search/`. Those third-party files retain their own
+license. The other new generation code is MIT-licensed; the new original
+documentation and certificate/numerical data are CC BY 4.0.

@@ -1,0 +1,22 @@
+{
+  "attempt": "attempt-001",
+  "case": "common",
+  "category": "setup",
+  "child_time": {
+    "max_rss_kib": 136020.0,
+    "system_seconds": 0.17,
+    "user_seconds": 1.4
+  },
+  "finished": "2026-09-30T22:30:35.904315+00:00",
+  "inclusive_wall_seconds": 6.578158869408071,
+  "phase_wall_seconds": {
+    "admission_and_inputs": 2.6405893713235855,
+    "mathematical_process": 2.5947627797722816,
+    "postprocess": 1.34317186800763
+  },
+  "stage": "setup.build",
+  "started": "2026-09-30T22:30:29.326183+00:00",
+  "status": "success",
+  "supervisor_system_seconds": 0.293807,
+  "supervisor_user_seconds": 2.126623
+}

@@ -1,0 +1,22 @@
+{
+  "attempt": "attempt-001",
+  "case": "dsjc250",
+  "category": "generation",
+  "child_time": {
+    "max_rss_kib": 98676.0,
+    "system_seconds": 0.15,
+    "user_seconds": 110.3
+  },
+  "finished": "2026-09-30T22:34:14.749763+00:00",
+  "inclusive_wall_seconds": 115.83058770000935,
+  "phase_wall_seconds": {
+    "admission_and_inputs": 2.8557943012565374,
+    "mathematical_process": 111.52744460105896,
+    "postprocess": 1.4477229067124426
+  },
+  "stage": "dsjc250.tree.env_x2",
+  "started": "2026-09-30T22:32:18.919203+00:00",
+  "status": "success",
+  "supervisor_system_seconds": 0.3594879999999998,
+  "supervisor_user_seconds": 2.8713659999999983
+}

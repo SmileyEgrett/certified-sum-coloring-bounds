@@ -1,0 +1,72 @@
+{
+  "by_case": {
+    "c2000": {
+      "attempts": 8,
+      "inclusive_stage_wall_seconds": 65.40569905564189,
+      "missing_cpu_time_files": [],
+      "other_statuses": {},
+      "peak_child_rss_kib": 73192.0,
+      "successes": 8,
+      "timed_child_cpu_seconds": 29.12
+    },
+    "common": {
+      "attempts": 1,
+      "inclusive_stage_wall_seconds": 6.578158869408071,
+      "missing_cpu_time_files": [],
+      "other_statuses": {},
+      "peak_child_rss_kib": 136020.0,
+      "successes": 1,
+      "timed_child_cpu_seconds": 1.5699999999999998
+    },
+    "dsjc1000": {
+      "attempts": 21,
+      "inclusive_stage_wall_seconds": 8600.81833181763,
+      "missing_cpu_time_files": [],
+      "other_statuses": {},
+      "peak_child_rss_kib": 529916.0,
+      "successes": 21,
+      "timed_child_cpu_seconds": 8425.15
+    },
+    "dsjc250": {
+      "attempts": 14,
+      "inclusive_stage_wall_seconds": 661.180291433353,
+      "missing_cpu_time_files": [],
+      "other_statuses": {
+        "admission_deferred": 1
+      },
+      "peak_child_rss_kib": 103700.0,
+      "successes": 13,
+      "timed_child_cpu_seconds": 589.6499999999999
+    },
+    "dsjc500": {
+      "attempts": 54,
+      "inclusive_stage_wall_seconds": 1896.7900035842322,
+      "missing_cpu_time_files": [],
+      "other_statuses": {
+        "admission_deferred": 1
+      },
+      "peak_child_rss_kib": 289204.0,
+      "successes": 53,
+      "timed_child_cpu_seconds": 1638.2800000000002
+    }
+  },
+  "export_wall_seconds": 5.023586560972035,
+  "invocation": {
+    "attempt_wall_seconds": 11230.772484760266,
+    "ended": "2026-10-01T01:38:13.903812+00:00",
+    "exit_code": 0,
+    "inclusive_process_wall_seconds": 11265.963324081153,
+    "oom_kill_delta": 0,
+    "overhead_seconds": 35.19083932088688,
+    "started": "2026-09-30T22:30:27.919812+00:00"
+  },
+  "memory_peak_bytes": 579473408,
+  "resource_limits": {
+    "memory.max": "4294967296",
+    "memory.swap.max": "0",
+    "pids.max": "64"
+  },
+  "schema": "conditioned_reproduction_costs_v1",
+  "scope": "Fresh certificate reproduction and exact verification; excludes discovery and software development.",
+  "source_snapshot_id": "206193c9a5dc2c0b01ed4508f855ac40147b588052df70ebedf79521bf6dc0b0"
+}

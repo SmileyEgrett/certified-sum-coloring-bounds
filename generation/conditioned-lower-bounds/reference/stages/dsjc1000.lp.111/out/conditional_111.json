@@ -1,0 +1,54 @@
+{
+  "schema": "dsjc1000_conditional_lp_q5cap_numerical_v1",
+  "scenario": "111",
+  "selected_top_classes": [
+    [
+      52,
+      54,
+      175,
+      319,
+      501,
+      704
+    ],
+    [
+      76,
+      145,
+      184,
+      672,
+      793,
+      805
+    ],
+    [
+      129,
+      150,
+      181,
+      321,
+      456,
+      762
+    ]
+  ],
+  "k": 3,
+  "q5_cap": 134,
+  "constant": 36,
+  "status": 0,
+  "success": true,
+  "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+  "variable_objective": 102307.583214856,
+  "total_objective": 102343.583214856,
+  "iterations": 265123,
+  "timing_seconds": {
+    "load_filter": 0.45643010595813394,
+    "build": 0.7888282369822264,
+    "solve": 1642.1491523911245,
+    "total": 1643.3944107340649
+  },
+  "peak_rss_kib": 506076,
+  "q_residual_by_threshold": [
+    213.51336961246895,
+    212.84324546870465,
+    211.9999999999992,
+    209.64338491882557,
+    134.00000000000003
+  ],
+  "q5_ub_marginal": -65.72949453451598
+}

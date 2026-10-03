@@ -1,0 +1,15 @@
+{"retained_argv": ["/usr/bin/python3", "<source>/existing/dsjc500/baseline/generate_k4_lpbb_cert.py", "--graph", "<source>/input/graphs/DSJC500.9.col", "--dual", "<run>/jobs/dsjc500.seed.P5/attempt-001/out/k4dual_P5.txt", "--packing", "5", "--time-limit", "0", "--node-limit", "0", "--out", "<run>/jobs/dsjc500.residual.P5/attempt-001/out/proof.json.gz"]}
+{"numerical_runtime": {"python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]", "numpy": "1.26.4", "scipy": "1.15.3", "HiGHS_version": "1.8.0", "actual_HiGHS_threads": 1, "post_solve_tid_affinities": {"732401": [6]}, "worker_tid_limit": 1, "actual_native_limits": {"threads": 1, "time_limit": "infinity", "mip_max_nodes": 2147483647, "simplex_iteration_limit": 2147483647, "ipm_iteration_limit": 2147483647}}}
+{
+  "packing": 5,
+  "allowed": 1157,
+  "new_bound": 101,
+  "branches": 44,
+  "dual_leaves": 45,
+  "count_leaves": 0,
+  "budget_leaves": 0,
+  "records": 89,
+  "calls": 89,
+  "max_depth": 9,
+  "generation_seconds": 8.961871623061597
+}

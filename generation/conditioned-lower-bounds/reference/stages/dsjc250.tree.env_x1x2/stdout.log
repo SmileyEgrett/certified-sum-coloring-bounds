@@ -1,0 +1,17 @@
+{"retained_argv": ["/usr/bin/python3", "<source>/existing/dsjc250/generate_lpbb.py", "env_x1x2", "<run>/jobs/dsjc250.tree.env_x1x2/attempt-001/out/env_x1x2.proof.json.gz", "0", "0"]}
+GRAPH_SHA256 1b90f811e4d44f8937075865790b845e986b08b9da53caea57b2adf1c57383e7
+{"numerical_runtime": {"python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]", "numpy": "1.26.4", "scipy": "1.15.3", "HiGHS_version": "1.8.0", "actual_HiGHS_threads": 1, "post_solve_tid_affinities": {"729362": [6]}, "worker_tid_limit": 1, "actual_native_limits": {"threads": 1, "time_limit": "infinity", "mip_max_nodes": 2147483647, "simplex_iteration_limit": 2147483647, "ipm_iteration_limit": 2147483647}}}
+{"progress_nodes": 250, "leaves": 122, "branches": 127, "depth": 11, "elapsed": 13.89243459701538, "lp_time": 13.085392236709595}
+{"progress_nodes": 500, "leaves": 249, "branches": 250, "depth": 6, "elapsed": 27.462172031402588, "lp_time": 25.863776922225952}
+{
+  "status": "PROVED",
+  "root": 502,
+  "nodes": 503,
+  "leaves": 252,
+  "branches": 251,
+  "elapsed": 27.676296949386597,
+  "lp_time": 26.06472873687744,
+  "proof_records": 503,
+  "out": "<run>/jobs/dsjc250.tree.env_x1x2/attempt-001/out/env_x1x2.proof.json.gz",
+  "error": null
+}

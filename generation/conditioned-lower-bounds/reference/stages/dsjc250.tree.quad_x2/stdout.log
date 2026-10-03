@@ -1,0 +1,15 @@
+{"retained_argv": ["/usr/bin/python3", "<source>/existing/dsjc250/generate_lpbb.py", "quad_x2", "<run>/jobs/dsjc250.tree.quad_x2/attempt-001/out/quad_x2.proof.json.gz", "0", "0"]}
+GRAPH_SHA256 1b90f811e4d44f8937075865790b845e986b08b9da53caea57b2adf1c57383e7
+{"numerical_runtime": {"python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]", "numpy": "1.26.4", "scipy": "1.15.3", "HiGHS_version": "1.8.0", "actual_HiGHS_threads": 1, "post_solve_tid_affinities": {"729256": [6]}, "worker_tid_limit": 1, "actual_native_limits": {"threads": 1, "time_limit": "infinity", "mip_max_nodes": 2147483647, "simplex_iteration_limit": 2147483647, "ipm_iteration_limit": 2147483647}}}
+{
+  "status": "PROVED",
+  "root": 74,
+  "nodes": 75,
+  "leaves": 38,
+  "branches": 37,
+  "elapsed": 0.7813320159912109,
+  "lp_time": 0.7488808631896973,
+  "proof_records": 75,
+  "out": "<run>/jobs/dsjc250.tree.quad_x2/attempt-001/out/quad_x2.proof.json.gz",
+  "error": null
+}

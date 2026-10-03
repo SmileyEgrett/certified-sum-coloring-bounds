@@ -1,7 +1,7 @@
 # Companion artifacts and verification scopes
 
 The distribution contains the manuscript, its matching PDF, certificate and
-witness data, checker sources, and reproduction instructions. Start with
+witness data, checker sources, generation software, computational records and reproduction instructions. Start with
 [REPRODUCE.md](../REPRODUCE.md).
 
 | Directory | Supplied evidence and scope |
@@ -13,6 +13,16 @@ witness data, checker sources, and reproduction instructions. Start with
 | `evidence/dsjc500/fractional_profile_points/` | Three exact rational feasible points at 29791 and their bounded checker. |
 | `evidence/dsjc1000/DSJC1000.9_EXACT_CONDITIONAL_RELEASE_20260728/` | Feasible unconditioned dual, eight conditional lower certificates and coloring of sum 103256. |
 | `evidence/c2000_9/` | Top-layer packing certificate, coloring of sum 382379 using 402 classes, and exact fractional-coloring and sum-master primal/dual certificates. |
+
+Additional generation material:
+
+| Directory | Software and records |
+|---|---|
+| `generation/conditioned-lower-bounds/` | Four-instance conditioned generation, exact composition checks and portable serial runner. |
+| `generation/conditioned-lower-bounds/reference/` | Fresh proof objects, complete numerical output, portable log transcripts and per-stage reproduction costs. |
+| `generation/sum-coloring-search/` | Modern feasible SA/population search with the bundled SciPy assignment implementation and tests. |
+| `generation/frozen-tail/` | C2000.9 tail formulation, source coloring, solver script and documented 382,384 to 382,379 improvement. |
+| `generation/tests/` and `generation/validation/` | Benchmark/tail validation commands and the upper-software validation summary. |
 
 `PUBLIC_MANIFEST.sha256` lists every distribution file except itself. Run
 `scripts/check_public_manifest.sh` on a clean extraction before fetching

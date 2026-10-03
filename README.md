@@ -3,10 +3,15 @@
 Companion manuscript and evidence for *Conditioning on the Largest Color Classes:
 Certified Bounds for Minimum-Sum Coloring of Very Dense Benchmark Graphs*.
 
-Version **1.0.0**. Cite this companion as: Olawale Titiloye (2026),
-*Conditioning on the Largest Color Classes: Certified Bounds for Minimum-Sum
-Coloring of Very Dense Benchmark Graphs — Software and Proof Certificates*,
-version 1.0.0, Zenodo. [doi:10.5281/zenodo.22952311](https://doi.org/10.5281/zenodo.22952311).
+Version **1.1.0** adds the lower-bound generators, a complete fresh
+reproduction with computational records, and modern upper-witness search
+software. The manuscript, original certificates, checked colorings and
+headline bounds are unchanged.
+
+The companion archive is available through its
+[Zenodo concept DOI](https://doi.org/10.5281/zenodo.22952310), which resolves to
+the latest version. The original **1.0.0** evidence cited in the manuscript
+remains available at [doi:10.5281/zenodo.22952311](https://doi.org/10.5281/zenodo.22952311).
 Machine-readable citation metadata is provided in [CITATION.cff](CITATION.cff).
 
 | Graph | Certified chromatic sum |
@@ -24,6 +29,11 @@ does not supply an independently replayable MIP lower-proof tree.
 - [Paper and matching PDF](paper/) and [build instructions](docs/PAPER_BUILD.md).
 - [Artifact inventory and verification scopes](docs/PUBLIC_EXPORT.md).
 - [Replay commands and dependencies](REPRODUCE.md).
+- [Lower-bound generation](generation/conditioned-lower-bounds/README.md),
+  [per-instance workflow](generation/conditioned-lower-bounds/GENERATION_WORKFLOW.md)
+  and [computational record](generation/conditioned-lower-bounds/reference/COMPUTATIONAL_RECORD.md).
+- [Upper-witness search and frozen-tail optimization](generation/UPPER_WITNESSES.md).
+- [Version 1.1.0 changes](docs/RELEASE_1_1_0.md).
 - [Graph origins and exact hashes](docs/GRAPH_PROVENANCE.md); obtain the
   graph files with `./scripts/fetch_graphs.sh`.
 - [Licenses](docs/LICENSES.md): MIT for original code; CC BY 4.0 for the

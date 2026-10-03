@@ -1,0 +1,22 @@
+{
+  "attempt": "attempt-001",
+  "case": "dsjc500",
+  "category": "generation",
+  "child_time": {
+    "max_rss_kib": 142612.0,
+    "system_seconds": 0.12,
+    "user_seconds": 10.06
+  },
+  "finished": "2026-09-30T22:48:04.529797+00:00",
+  "inclusive_wall_seconds": 15.966009828727692,
+  "phase_wall_seconds": {
+    "admission_and_inputs": 3.7953443466685712,
+    "mathematical_process": 10.703373088967055,
+    "postprocess": 1.4677700800821185
+  },
+  "stage": "dsjc500.profile_farkas.P1_1_1_6_101",
+  "started": "2026-09-30T22:47:48.563817+00:00",
+  "status": "success",
+  "supervisor_system_seconds": 0.19195399999999907,
+  "supervisor_user_seconds": 2.202736999999999
+}

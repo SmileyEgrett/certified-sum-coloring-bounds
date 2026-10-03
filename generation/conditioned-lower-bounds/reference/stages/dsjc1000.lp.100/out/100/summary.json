@@ -1,0 +1,43 @@
+{
+  "schema": "dsjc1000_conditional_lp_numerical_v1",
+  "scenario": "100",
+  "selected_top_classes": [
+    [
+      52,
+      54,
+      175,
+      319,
+      501,
+      704
+    ]
+  ],
+  "k": 1,
+  "residual_vertices": 994,
+  "eligible_sets": 255026,
+  "variables": 257294,
+  "constraints": 999,
+  "nonzeros": 1513494,
+  "constant": 6,
+  "status": 0,
+  "success": true,
+  "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+  "variable_objective": 102497.51259327942,
+  "total_objective": 102503.51259327942,
+  "iterations": 197014,
+  "timing_seconds": {
+    "load_filter": 0.45870199520140886,
+    "build": 0.8743200609460473,
+    "solve": 1133.361921763979,
+    "total": 1134.6949438201264
+  },
+  "peak_rss_kib": 521560,
+  "scipy": "1.15.3",
+  "q_residual_by_threshold": [
+    217.08169568977388,
+    216.06675752567568,
+    213.9999999999995,
+    207.00000000000028,
+    139.85154678454995
+  ],
+  "x_positive": 988
+}

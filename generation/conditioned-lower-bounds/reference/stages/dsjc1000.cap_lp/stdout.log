@@ -1,0 +1,12 @@
+{"retained_argv": ["/usr/bin/python3", "<source>/existing/dsjc1000/solve_size5_packing_lp.py", "--sets", "<run>/jobs/dsjc1000.reconstruct/attempt-001/out/sets", "--scenario", "111", "--out", "<run>/jobs/dsjc1000.cap_lp/attempt-001/out/size5_packing_lp_111.json"]}
+{"numerical_runtime": {"python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]", "numpy": "1.26.4", "scipy": "1.15.3", "HiGHS_version": "1.8.0", "actual_HiGHS_threads": 1, "post_solve_tid_affinities": {"739045": [6]}, "worker_tid_limit": 1, "actual_native_limits": {"threads": 1, "time_limit": "infinity", "mip_max_nodes": 2147483647, "simplex_iteration_limit": 2147483647, "ipm_iteration_limit": 2147483647}}}
+{
+  "scenario": "111",
+  "eligible_size5_sets": 750,
+  "status": 0,
+  "success": true,
+  "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+  "packing_lp_optimum": 134.54989040501667,
+  "elapsed": 0.2410295009613037,
+  "peak_rss_kib": 74364
+}

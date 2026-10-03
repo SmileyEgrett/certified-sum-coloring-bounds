@@ -1,0 +1,10 @@
+{"retained_argv": ["<run>/jobs/setup.build/attempt-001/out/c2000-census", "<source>/input/graphs/C2000.9.col", "7", "<run>/jobs/c2000.independent_census/attempt-001/out/sets6.tsv"]}
+vertices=2000
+edges=1799532
+stable_sets_size_1=2000
+stable_sets_size_2=199468
+stable_sets_size_3=1322912
+stable_sets_size_4=656504
+stable_sets_size_5=26224
+stable_sets_size_6=90
+stable_sets_size_7=0

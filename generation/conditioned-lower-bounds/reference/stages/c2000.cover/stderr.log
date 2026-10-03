@@ -1,0 +1,2 @@
+<source>/new/numerical.py:37: RuntimeWarning: Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim.
+  options=dict(kw.get('options') or {});options['threads']=1;kw['options']=options;return _milp(*args,**kw)

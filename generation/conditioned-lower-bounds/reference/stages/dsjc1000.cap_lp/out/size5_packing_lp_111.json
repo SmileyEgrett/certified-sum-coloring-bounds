@@ -1,0 +1,10 @@
+{
+  "scenario": "111",
+  "eligible_size5_sets": 750,
+  "status": 0,
+  "success": true,
+  "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+  "packing_lp_optimum": 134.54989040501667,
+  "elapsed": 0.2410295009613037,
+  "peak_rss_kib": 74364
+}

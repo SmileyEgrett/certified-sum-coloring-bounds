@@ -1,0 +1,2 @@
+<source>/new/numerical.py:35: OptimizeWarning: Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim.
+  options=dict(kw.get('options') or {});options['threads']=1;kw['options']=options;return _linprog(*args,**kw)

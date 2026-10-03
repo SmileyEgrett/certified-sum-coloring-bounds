@@ -1,0 +1,19 @@
+{"retained_argv": ["/usr/bin/python3", "<source>/existing/dsjc500/baseline/find_profile_farkas.py", "--graph", "<source>/input/graphs/DSJC500.9.col", "--packing", "3", "--h1", "0", "--h2", "3", "--h3", "5", "--h4", "101", "--out", "<run>/jobs/dsjc500.profile_farkas.P3_0_3_5_101/attempt-001/out/certificate.json"]}
+{"numerical_runtime": {"python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]", "numpy": "1.26.4", "scipy": "1.15.3", "HiGHS_version": "1.8.0", "actual_HiGHS_threads": 1, "post_solve_tid_affinities": {"733111": [6]}, "worker_tid_limit": 1, "actual_native_limits": {"threads": 1, "time_limit": "infinity", "mip_max_nodes": 2147483647, "simplex_iteration_limit": 2147483647, "ipm_iteration_limit": 2147483647}}}
+{
+  "packing": 3,
+  "quota": {
+    "1": 0,
+    "2": 3,
+    "3": 5,
+    "4": 101
+  },
+  "rhs": -53,
+  "minima": {
+    "1": 0,
+    "2": 0,
+    "3": 0,
+    "4": 0
+  },
+  "seconds": 8.116860087029636
+}

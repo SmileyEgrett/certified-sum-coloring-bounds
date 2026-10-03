@@ -1,0 +1,8 @@
+{"retained_argv": ["/usr/bin/python3", "<source>/existing/dsjc500/delta/make_conditional_model.py", "--graph", "<source>/input/graphs/DSJC500.9.col", "--maximum-class-size", "5", "--packing-number", "7", "--scores", "4:251001,3:501,2:1", "--caps", "4:101,3:5", "--strict-target", "25353608", "--radix", "501", "--stable-node-limit", "0", "--top-packing-limit", "0", "--out-dir", "<run>/jobs/dsjc500.model.P7_C_29788/attempt-001/out"]}
+{
+  "model": "<run>/jobs/dsjc500.model.P7_C_29788/attempt-001/out/conditional_03ae7e2fba1b4545c771.model.json",
+  "columns": "<run>/jobs/dsjc500.model.P7_C_29788/attempt-001/out/conditional_03ae7e2fba1b4545c771.columns.tsv",
+  "model_id": "conditional_03ae7e2fba1b4545c771",
+  "column_count": 21763,
+  "top_packing_size": 15
+}

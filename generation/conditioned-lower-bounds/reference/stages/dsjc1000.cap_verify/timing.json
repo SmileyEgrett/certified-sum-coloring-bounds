@@ -1,0 +1,22 @@
+{
+  "attempt": "attempt-001",
+  "case": "dsjc1000",
+  "category": "independent_verification",
+  "child_time": {
+    "max_rss_kib": 123252.0,
+    "system_seconds": 0.13,
+    "user_seconds": 2.72
+  },
+  "finished": "2026-09-30T23:14:10.146412+00:00",
+  "inclusive_wall_seconds": 8.10347008984536,
+  "phase_wall_seconds": {
+    "admission_and_inputs": 3.773466582875699,
+    "mathematical_process": 3.1000276748090982,
+    "postprocess": 1.2303347033448517
+  },
+  "stage": "dsjc1000.cap_verify",
+  "started": "2026-09-30T23:14:02.042968+00:00",
+  "status": "success",
+  "supervisor_system_seconds": 0.20672499999999872,
+  "supervisor_user_seconds": 2.1696079999999824
+}
